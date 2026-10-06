@@ -61,7 +61,8 @@ export const CSS = `
 .dg-kpi { display:grid; grid-template-columns:repeat(auto-fit,minmax(120px,1fr)); gap:10px; }
 .dg-stat { background:${C.bg2}; border:1px solid var(--line); border-radius:10px; padding:11px 12px; }
 .dg-stat .n { font-size:18px; font-weight:700; } .dg-stat .l { font-size:10.5px; color:var(--mut); text-transform:uppercase; letter-spacing:.04em; }
-.dg-chip { font-size:10.5px; font-weight:700; padding:2px 8px; border-radius:6px; border:1px solid currentColor; text-transform:capitalize; }
+.dg-chip { font-size:10.5px; font-weight:700; padding:2px 8px; border-radius:6px; border:1px solid currentColor; text-transform:capitalize; white-space:nowrap; display:inline-block; }
+.dg-table td:nth-child(4) { white-space:nowrap; }
 .dg-issue { display:flex; gap:9px; align-items:flex-start; font-size:13px; padding:7px 0; border-top:1px solid var(--line); }
 .dg-sev { font-size:10px; font-weight:700; padding:2px 7px; border-radius:5px; flex:none; text-transform:uppercase; }
 .dg-table { width:100%; border-collapse:collapse; font-size:13px; }
