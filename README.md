@@ -37,7 +37,7 @@ can also **upload the original files directly** (Import workspace → *Upload JS
 
 ## Demo
 
-> **Video:** _add your 3–5 min screen recording link here._
+> **Video:** (https://www.loom.com/share/50962df0eab44d55a67e0d3840d3bfcc)
 
 
 ********Suggested walkthrough********
