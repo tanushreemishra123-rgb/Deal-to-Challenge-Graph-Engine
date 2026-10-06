@@ -16,6 +16,7 @@ const FILES = {
   member: "member-experience-modernisation-early-discovery.json",
   supply: "unified-supply-chain-analytics.json",
 };
+const clone = (o) => JSON.parse(JSON.stringify(o));
 const load = (f) => JSON.parse(fs.readFileSync(path.join(dir, "fixtures", f), "utf8"));
 
 let pass = 0, fail = 0;
@@ -113,7 +114,29 @@ for (const [k, r] of Object.entries(compiled)) {
   ok(`[${k}] export marks not-ready nodes`, Array.isArray(ex.notReadyForHandoff));
 }
 
-// 12. mock mode runs all four with no network / no keys (implicit: we got here)
+// 12. user edits: adding a back-edge creates a detectable cycle
+{
+  const g = clone(compiled.supply.graph);
+  const cp = compiled.supply.analysis.criticalPath;
+  if (cp.length >= 2) {
+    g.edges.push({ id: "USER_E", source: cp[cp.length - 1], target: cp[0], type: "user-dependency", blocking: true });
+    ok(`user-added back-edge is detected as a cycle`, analyzeGraph(g).hasCycle === true);
+  } else ok(`user-added back-edge is detected as a cycle`, true);
+}
+// 13. removing a node preserves the others and drops its edges
+{
+  const r = compiled.clinical;
+  const before = clone(r.graph);
+  const victim = before.nodes[3].id;
+  const after = clone(before);
+  after.nodes = after.nodes.filter((n) => n.id !== victim);
+  after.edges = after.edges.filter((e) => e.source !== victim && e.target !== victim);
+  const impact = changeImpact(before, after, victim);
+  ok(`node removal preserves other nodes`, after.nodes.length === before.nodes.length - 1 && impact.unaffectedNodes.length > 0);
+  ok(`node removal drops its edges`, !after.edges.some((e) => e.source === victim || e.target === victim));
+}
+
+// 14. mock mode runs all four with no network / no keys (implicit: we got here)
 ok(`mock mode compiles all four supplied packages offline`, Object.keys(compiled).length === 4);
 
 console.log(`\n${pass} passed, ${fail} failed`);

@@ -78,8 +78,61 @@ export default function App() {
       n.blocked = !n.blocked; n.readiness = n.blocked ? "blocked" : "review-required"; return g; });
     setLastChange(nodeId);
   };
+  const syncDeps = (g) => {
+    const inc = new Map(g.nodes.map((n) => [n.id, []]));
+    for (const e of g.edges) if (inc.has(e.target)) inc.get(e.target).push(e.source);
+    for (const n of g.nodes) n.dependsOn = inc.get(n.id);
+    return g;
+  };
+  // edit arbitrary node fields (scope, category, effort, acceptance, inputs, deliverables, title)
+  const editNode = (nodeId, patch) => {
+    setWork((g0) => { const g = clone(g0); const n = g.nodes.find((x) => x.id === nodeId); if (!n) return g0;
+      Object.assign(n, patch); if (n.provenance === "ai-recommended") n.provenance = "user-approved"; return g; });
+    setLastChange(nodeId);
+  };
+  const approveNode = (nodeId) => {
+    setWork((g0) => { const g = clone(g0); const n = g.nodes.find((x) => x.id === nodeId); if (!n) return g0;
+      n.provenance = "user-approved"; n.readiness = n.blocked ? "blocked" : "ready"; return g; });
+    setLastChange(nodeId);
+  };
+  const removeNode = (nodeId) => {
+    setWork((g0) => { let g = clone(g0);
+      g.nodes = g.nodes.filter((n) => n.id !== nodeId);
+      g.edges = g.edges.filter((e) => e.source !== nodeId && e.target !== nodeId);
+      return updateSummary(syncDeps(g)); });
+    setSel((s) => (s === nodeId ? null : s)); setLastChange(nodeId);
+  };
+  const splitNode = (nodeId) => {
+    setWork((g0) => { const g = clone(g0); const i = g.nodes.findIndex((x) => x.id === nodeId); if (i < 0) return g0;
+      const src = g.nodes[i];
+      const mk = (suffix) => ({ ...clone(src), id: `${src.id}.${suffix}`, title: `${src.title} (${suffix})`,
+        provenance: "user-created", effort: { ...src.effort, minimum: Math.max(1, Math.round(src.effort.minimum / 2)), maximum: Math.max(1, Math.round(src.effort.maximum / 2)) } });
+      const a = mk("a"), b = mk("b");
+      g.nodes.splice(i, 1, a, b);
+      // rewire edges: incoming → a, outgoing → b, and a → b
+      g.edges = g.edges.map((e) => e.target === nodeId ? { ...e, target: a.id } : e.source === nodeId ? { ...e, source: b.id } : e);
+      g.edges.push({ id: `EDGE_${Date.now()}`, source: a.id, target: b.id, type: "split-handoff", rationale: "Second half depends on the first.", blocking: true, sourceIds: [] });
+      return updateSummary(syncDeps(g)); });
+    setLastChange(nodeId);
+  };
+  const addDependency = (fromId, toId) => {
+    if (!fromId || !toId || fromId === toId) return;
+    setWork((g0) => { const g = clone(g0);
+      if (g.edges.some((e) => e.source === fromId && e.target === toId)) return g0;
+      g.edges.push({ id: `EDGE_${Date.now()}`, source: fromId, target: toId, type: "user-dependency", rationale: "User-added dependency.", blocking: true, sourceIds: [] });
+      return syncDeps(g); });
+    setLastChange(toId);
+  };
+  const removeDependency = (fromId, toId) => {
+    setWork((g0) => { const g = clone(g0);
+      g.edges = g.edges.filter((e) => !(e.source === fromId && e.target === toId));
+      return syncDeps(g); });
+    setLastChange(toId);
+  };
 
   const selNode = work?.nodes.find((n) => n.id === sel) || null;
+  const nodeEditProps = { onEdit: editNode, onRemove: removeNode, onSplit: splitNode, onApprove: approveNode,
+    onAddDep: addDependency, onRemoveDep: removeDependency, allNodes: work?.nodes || [] };
 
   return (
     <div className="dg">
@@ -136,7 +189,7 @@ export default function App() {
                 </table>
               </div>
             </div>
-            <Inspector node={selNode} canonical={base.canonical} onOverride={overrideModel} onToggleBlocked={toggleBlocked} />
+            <Inspector node={selNode} canonical={base.canonical} onOverride={overrideModel} onToggleBlocked={toggleBlocked} {...nodeEditProps} />
           </div>
         )}
 
@@ -172,7 +225,7 @@ export default function App() {
                 )}
               </div>
             </div>
-            <Inspector node={selNode} canonical={base.canonical} onOverride={overrideModel} onToggleBlocked={toggleBlocked} />
+            <Inspector node={selNode} canonical={base.canonical} onOverride={overrideModel} onToggleBlocked={toggleBlocked} {...nodeEditProps} />
           </div>
         )}
 
@@ -285,14 +338,49 @@ function ImportView({ base, loading, onBundled, onUpload, onNext }) {
   );
 }
 
-function Inspector({ node, canonical, onOverride, onToggleBlocked }) {
+const CATS = ["discovery","ux-design","frontend","backend-api","integration","data-engineering","ai-implementation","cloud-devops","security","testing","documentation","deployment","technical-review","solution-delivery"];
+function Inspector({ node, canonical, onOverride, onToggleBlocked, onEdit, onRemove, onSplit, onApprove, onAddDep, onRemoveDep, allNodes }) {
+  const [edit, setEdit] = React.useState(false);
+  const [depTo, setDepTo] = React.useState("");
+  React.useEffect(() => setEdit(false), [node?.id]);
   if (!node) return <div className="dg-card dg-insp dg-mut">Select a node to inspect.</div>;
   const om = node.operatingModel;
+  const candidates = allNodes.filter((n) => n.id !== node.id && !node.dependsOn.includes(n.id));
   return (
     <div className="dg-card dg-insp">
-      <div className="dg-eyebrow">Node · {node.id} <span className="dg-prov">{node.provenance}</span></div>
-      <div className="dg-h">{node.title}</div>
-      <div className="dg-mut" style={{ marginBottom: 8 }}>{node.objective}</div>
+      <div className="dg-eyebrow" style={{ display: "flex", alignItems: "center", gap: 6 }}>
+        Node · {node.id} <span className="dg-prov">{node.provenance}</span>
+        <button className="dg-btn sm" style={{ marginLeft: "auto" }} onClick={() => setEdit((e) => !e)}>{edit ? "Done" : "Edit"}</button>
+      </div>
+      {edit ? (
+        <div className="dg-section">
+          <h5>Edit node</h5>
+          <input className="dg-input" style={{ width: "100%", marginBottom: 6 }} value={node.title} onChange={(e) => onEdit(node.id, { title: e.target.value })} />
+          <textarea className="dg-input" style={{ width: "100%", marginBottom: 6 }} rows={2} value={node.scope} onChange={(e) => onEdit(node.id, { scope: e.target.value })} />
+          <div style={{ display: "flex", gap: 6, marginBottom: 6, flexWrap: "wrap" }}>
+            <select className="dg-select" value={node.workCategory} onChange={(e) => onEdit(node.id, { workCategory: e.target.value })}>
+              {CATS.map((c) => <option key={c} value={c}>{c}</option>)}
+            </select>
+            <input className="dg-input" type="number" style={{ width: 70 }} value={node.effort.minimum} onChange={(e) => onEdit(node.id, { effort: { ...node.effort, minimum: +e.target.value } })} />
+            <input className="dg-input" type="number" style={{ width: 70 }} value={node.effort.maximum} onChange={(e) => onEdit(node.id, { effort: { ...node.effort, maximum: +e.target.value } })} />
+            <span className="dg-mut dg-src" style={{ alignSelf: "center" }}>pd (min/max)</span>
+          </div>
+          <textarea className="dg-input" style={{ width: "100%" }} rows={3}
+            value={node.acceptanceConditions.join("\n")}
+            onChange={(e) => onEdit(node.id, { acceptanceConditions: e.target.value.split("\n").filter(Boolean) })}
+            placeholder="One acceptance condition per line" />
+          <div style={{ display: "flex", gap: 6, marginTop: 8, flexWrap: "wrap" }}>
+            <button className="dg-btn sm" onClick={() => onApprove(node.id)}>Approve node</button>
+            <button className="dg-btn sm" onClick={() => onSplit(node.id)}>Split</button>
+            <button className="dg-btn sm" style={{ borderColor: C.fail, color: C.fail }} onClick={() => onRemove(node.id)}>Remove</button>
+          </div>
+        </div>
+      ) : (
+        <>
+          <div className="dg-h">{node.title}</div>
+          <div className="dg-mut" style={{ marginBottom: 8 }}>{node.objective}</div>
+        </>
+      )}
       <div className="dg-pills">
         <span className="dg-pill">{node.workCategory}</span>
         <span className="dg-pill">{node.effort.minimum}-{node.effort.maximum} {node.effort.unit}</span>
@@ -323,7 +411,23 @@ function Inspector({ node, canonical, onOverride, onToggleBlocked }) {
       </div>
       <div className="dg-section"><h5>Deliverables</h5><ul className="dg-list dg-mut">{node.deliverables.map((d, i) => <li key={i}>{d}</li>)}</ul></div>
       <div className="dg-section"><h5>Acceptance conditions</h5><ul className="dg-list dg-mut">{node.acceptanceConditions.map((d, i) => <li key={i}>{d}</li>)}</ul></div>
-      {node.dependsOn.length > 0 && <div className="dg-section"><h5>Depends on</h5><div className="dg-pills">{node.dependsOn.map((d) => <span key={d} className="dg-pill dg-mono">{d}</span>)}</div></div>}
+      <div className="dg-section"><h5>Dependencies (depends on)</h5>
+        <div className="dg-pills" style={{ marginBottom: 6 }}>
+          {node.dependsOn.length ? node.dependsOn.map((d) => (
+            <span key={d} className="dg-pill dg-mono">{d}
+              <span style={{ cursor: "pointer", color: C.fail, marginLeft: 4 }} onClick={() => onRemoveDep(d, node.id)} title="remove dependency">✕</span>
+            </span>
+          )) : <span className="dg-mut dg-src">none</span>}
+        </div>
+        <div style={{ display: "flex", gap: 6 }}>
+          <select className="dg-select" value={depTo} onChange={(e) => setDepTo(e.target.value)} style={{ flex: 1 }}>
+            <option value="">add dependency on…</option>
+            {candidates.map((n) => <option key={n.id} value={n.id}>{n.id} — {n.title.slice(0, 30)}</option>)}
+          </select>
+          <button className="dg-btn sm" disabled={!depTo} onClick={() => { onAddDep(depTo, node.id); setDepTo(""); }}>Add</button>
+        </div>
+        <div className="dg-mut dg-src" style={{ marginTop: 4 }}>Adding a dependency that forms a cycle will be flagged by the graph checks.</div>
+      </div>
     </div>
   );
 }
