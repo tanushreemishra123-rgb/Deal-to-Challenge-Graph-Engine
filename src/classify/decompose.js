@@ -258,11 +258,20 @@ export function decompose(c) {
   }
 
   // ================= CLASSIFY each node (operating model) =================
+  const MLABEL = { "flexible-talent": "Flexible Talent", "challenge": "Challenge", "private-pod": "Private Pod" };
   for (const n of nodes) {
     const cls = classifyNode(n, c);
     n.operatingModel = cls;
     // nodes missing information required by their model stay review-required/blocked
     if (n._missingContract && n.operatingModel.primary === "challenge") n.readiness = "review-required";
+    // a low-confidence (borderline) classification is a human-review decision point:
+    // mark it review-required and make the reason explicit, naming the close alternative.
+    if (cls.confidence === "low") {
+      if (n.readiness === "ready") n.readiness = "review-required";
+      const alt = cls.alternatives[0];
+      cls.rationale = cls.rationale.filter((r) => !/^Confidence is low/.test(r)); // replace generic line
+      cls.rationale.unshift(`⚠ Borderline classification — confirm the operating model before committing${alt ? ` (close call vs. ${MLABEL[alt]})` : ""}.`);
+    }
   }
 
   // clean internal temp fields
