@@ -1,0 +1,43 @@
+{
+  "nodeId": "NODE_018",
+  "title": "Explore the user experience",
+  "operatingModel": "challenge",
+  "sourceIds": [
+    "PER_01",
+    "PER_02",
+    "PER_03",
+    "PER_04",
+    "FR_01",
+    "FR_02",
+    "FR_03",
+    "FR_04"
+  ],
+  "readiness": "ready",
+  "kind": "challenge",
+  "objective": "Produce UX concepts and a validated interaction design for the core journeys.",
+  "businessAndTechnicalContext": "4 persona(s); core functional journeys",
+  "deliverables": [
+    "UX concepts",
+    "Validated interaction design"
+  ],
+  "evaluationCriteria": [
+    "Designs cover the core journeys.",
+    "Designs meet usability criteria."
+  ],
+  "acceptanceConditions": [
+    "Designs cover the core journeys.",
+    "Designs meet usability criteria."
+  ],
+  "inputAssets": [
+    "Personas",
+    "Core journeys"
+  ],
+  "requiredTechnologies": [
+    "Interaction design",
+    "Usability testing"
+  ],
+  "dependencies": [],
+  "confidentialityLimitations": "No unrestricted access to sensitive information is required.",
+  "expectedReviewProcess": "Submissions reviewed against the evaluation criteria; winner selected on score.",
+  "readinessNote": "Ready to launch."
+}

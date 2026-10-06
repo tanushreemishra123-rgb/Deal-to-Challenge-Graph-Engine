@@ -1,0 +1,29 @@
+{
+  "nodeId": "NODE_001",
+  "title": "Resolve: SAP S/4HANA integration pattern unconfirmed",
+  "operatingModel": "flexible-talent",
+  "sourceIds": [
+    "GAP_01",
+    "INT_02",
+    "Q_01"
+  ],
+  "readiness": "ready",
+  "kind": "flexible-talent",
+  "requiredRoles": [
+    "Specialist / Analyst"
+  ],
+  "requiredSkills": [
+    "General engineering"
+  ],
+  "seniority": "Senior specialist",
+  "durationOrCapacity": "2–5 person-days",
+  "responsibilities": [
+    "A documented decision or confirmed answer",
+    "Updated assumptions/requirements"
+  ],
+  "startDependencies": [],
+  "requiredAccessAndEnvironment": [
+    "Access to the relevant stakeholders or source systems"
+  ],
+  "readinessNote": "Ready to assign."
+}

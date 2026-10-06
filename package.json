@@ -1,0 +1,22 @@
+{
+  "name": "deal-to-challenge-graph-engine",
+  "version": "1.0.0",
+  "description": "Transforms deal-scoping JSON packages into an execution-ready DAG of operating-model-classified delivery nodes.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "node test/engine.test.mjs",
+    "samples": "node scripts_gen_samples.mjs"
+  },
+  "dependencies": {
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "4.3.1",
+    "vite": "5.4.0"
+  }
+}

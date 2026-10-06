@@ -1,0 +1,2497 @@
+{
+  "schemaVersion": "1.0",
+  "exportedAt": "2026-10-05T09:12:57.755Z",
+  "deal": {
+    "id": "12de4070-50bc-448e-888d-061c62073dcc",
+    "title": "Clinical Intake and Patient Support Assistant",
+    "maturity": "review-required"
+  },
+  "graphId": "GRAPH_12de4070",
+  "operatingModelSummary": {
+    "flexibleTalent": 11,
+    "challenge": 1,
+    "privatePod": 9
+  },
+  "execution": {
+    "waves": [
+      [
+        "NODE_001",
+        "NODE_002",
+        "NODE_003",
+        "NODE_004",
+        "NODE_005",
+        "NODE_006",
+        "NODE_007",
+        "NODE_008",
+        "NODE_009",
+        "NODE_010",
+        "NODE_011",
+        "NODE_012",
+        "NODE_013",
+        "NODE_014",
+        "NODE_015"
+      ],
+      [
+        "NODE_019",
+        "NODE_016",
+        "NODE_017",
+        "NODE_018"
+      ],
+      [
+        "NODE_020"
+      ],
+      [
+        "NODE_021"
+      ]
+    ],
+    "waveSummary": [
+      {
+        "wave": 1,
+        "nodes": 15,
+        "flexible-talent": 10,
+        "challenge": 1,
+        "private-pod": 4,
+        "effortMin": 54,
+        "effortMax": 113
+      },
+      {
+        "wave": 2,
+        "nodes": 4,
+        "flexible-talent": 0,
+        "challenge": 0,
+        "private-pod": 4,
+        "effortMin": 31,
+        "effortMax": 54
+      },
+      {
+        "wave": 3,
+        "nodes": 1,
+        "flexible-talent": 1,
+        "challenge": 0,
+        "private-pod": 0,
+        "effortMin": 4,
+        "effortMax": 8
+      },
+      {
+        "wave": 4,
+        "nodes": 1,
+        "flexible-talent": 0,
+        "challenge": 0,
+        "private-pod": 1,
+        "effortMin": 3,
+        "effortMax": 6
+      }
+    ],
+    "criticalPath": [
+      "NODE_013",
+      "NODE_019",
+      "NODE_020",
+      "NODE_021"
+    ],
+    "criticalDuration": 35,
+    "totalEffort": {
+      "minimum": 92,
+      "maximum": 181,
+      "unit": "person-days"
+    },
+    "parallelism": 15
+  },
+  "qualityGate": {
+    "status": "review-required",
+    "summary": {
+      "status": "review-required",
+      "pass": 10,
+      "warn": 2,
+      "fail": 0
+    },
+    "checks": [
+      {
+        "id": "source-coverage",
+        "label": "Source coverage",
+        "status": "pass",
+        "detail": "Every node is grounded in imported source ids",
+        "refs": []
+      },
+      {
+        "id": "supported-refs",
+        "label": "Grounding references valid",
+        "status": "pass",
+        "detail": "All node references resolve to imported ids",
+        "refs": []
+      },
+      {
+        "id": "model-complete",
+        "label": "Operating-model completeness",
+        "status": "pass",
+        "detail": "Every node has exactly one valid operating model",
+        "refs": []
+      },
+      {
+        "id": "model-rationale",
+        "label": "Classification rationale",
+        "status": "pass",
+        "detail": "Every classification has an explainable rationale",
+        "refs": []
+      },
+      {
+        "id": "acceptance",
+        "label": "Acceptance conditions",
+        "status": "pass",
+        "detail": "Every node has acceptance conditions",
+        "refs": []
+      },
+      {
+        "id": "overlap",
+        "label": "No duplicate/overlapping scope",
+        "status": "warn",
+        "detail": "1 node(s) overlap in scope",
+        "refs": [
+          "NODE_005"
+        ]
+      },
+      {
+        "id": "acyclic",
+        "label": "Graph is acyclic",
+        "status": "pass",
+        "detail": "No cycles",
+        "refs": []
+      },
+      {
+        "id": "no-orphans",
+        "label": "No orphan nodes",
+        "status": "pass",
+        "detail": "No orphan nodes",
+        "refs": []
+      },
+      {
+        "id": "valid-edges",
+        "label": "Dependencies valid",
+        "status": "pass",
+        "detail": "All dependencies are valid",
+        "refs": []
+      },
+      {
+        "id": "model-fit",
+        "label": "Model-to-work fit",
+        "status": "pass",
+        "detail": "Operating models fit the work",
+        "refs": []
+      },
+      {
+        "id": "node-readiness",
+        "label": "Node readiness",
+        "status": "warn",
+        "detail": "7 node(s) are blocked or review-required",
+        "refs": [
+          "NODE_011",
+          "NODE_012",
+          "NODE_016",
+          "NODE_017",
+          "NODE_018",
+          "NODE_019",
+          "NODE_021"
+        ]
+      },
+      {
+        "id": "critical-path",
+        "label": "Critical path present",
+        "status": "pass",
+        "detail": "Critical path spans 4 node(s), 35 person-days",
+        "refs": [
+          "NODE_013",
+          "NODE_019",
+          "NODE_020",
+          "NODE_021"
+        ]
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "id": "NODE_001",
+      "title": "Resolve: Epic sandbox write capability unconfirmed",
+      "objective": "Clarify and confirm \"Epic sandbox write capability unconfirmed\" before dependent implementation proceeds.",
+      "workCategory": "discovery",
+      "scope": "It is unclear whether the current Epic FHIR R4 sandbox supports writing structured referral data or only reading patient context.",
+      "sourceIds": [
+        "GAP_01",
+        "INT_01",
+        "Q_01"
+      ],
+      "inputs": [
+        "Access to the relevant stakeholders or source systems"
+      ],
+      "deliverables": [
+        "A documented decision or confirmed answer",
+        "Updated assumptions/requirements"
+      ],
+      "acceptanceConditions": [
+        "The open item is resolved and recorded as a reviewed decision."
+      ],
+      "dependsOn": [],
+      "effort": {
+        "minimum": 2,
+        "maximum": 5,
+        "unit": "person-days"
+      },
+      "operatingModel": {
+        "primary": "flexible-talent",
+        "alternatives": [],
+        "confidence": "high",
+        "rationale": [
+          "The work is a focused task for one specialist with known skills.",
+          "A focused technical assessment fits a single specialist.",
+          "One clearly-defined role is required.",
+          "Small, self-contained effort that can be directly managed."
+        ],
+        "sourceIds": [
+          "GAP_01",
+          "INT_01",
+          "Q_01"
+        ],
+        "scores": {
+          "flexible-talent": 8,
+          "challenge": 0,
+          "private-pod": 2
+        },
+        "overridden": false,
+        "overrideHistory": []
+      },
+      "provenance": "ai-recommended",
+      "readiness": "ready",
+      "blocked": false,
+      "executionPackage": {
+        "nodeId": "NODE_001",
+        "title": "Resolve: Epic sandbox write capability unconfirmed",
+        "operatingModel": "flexible-talent",
+        "sourceIds": [
+          "GAP_01",
+          "INT_01",
+          "Q_01"
+        ],
+        "readiness": "ready",
+        "kind": "flexible-talent",
+        "requiredRoles": [
+          "Specialist / Analyst"
+        ],
+        "requiredSkills": [
+          "General engineering"
+        ],
+        "seniority": "Senior specialist",
+        "durationOrCapacity": "2–5 person-days",
+        "responsibilities": [
+          "A documented decision or confirmed answer",
+          "Updated assumptions/requirements"
+        ],
+        "startDependencies": [],
+        "requiredAccessAndEnvironment": [
+          "Access to the relevant stakeholders or source systems"
+        ],
+        "readinessNote": "Ready to assign."
+      }
+    },
+    {
+      "id": "NODE_002",
+      "title": "Resolve: Assistant deployment form undecided",
+      "objective": "Clarify and confirm \"Assistant deployment form undecided\" before dependent implementation proceeds.",
+      "workCategory": "discovery",
+      "scope": "No decision has been made on whether the assistant runs as a fully separate application or is embedded inside the existing patient portal.",
+      "sourceIds": [
+        "GAP_02",
+        "Q_02"
+      ],
+      "inputs": [
+        "Access to the relevant stakeholders or source systems"
+      ],
+      "deliverables": [
+        "A documented decision or confirmed answer",
+        "Updated assumptions/requirements"
+      ],
+      "acceptanceConditions": [
+        "The open item is resolved and recorded as a reviewed decision."
+      ],
+      "dependsOn": [],
+      "effort": {
+        "minimum": 1,
+        "maximum": 3,
+        "unit": "person-days"
+      },
+      "operatingModel": {
+        "primary": "flexible-talent",
+        "alternatives": [],
+        "confidence": "high",
+        "rationale": [
+          "The work is a focused task for one specialist with known skills.",
+          "A focused technical assessment fits a single specialist.",
+          "One clearly-defined role is required.",
+          "Small, self-contained effort that can be directly managed."
+        ],
+        "sourceIds": [
+          "GAP_02",
+          "Q_02"
+        ],
+        "scores": {
+          "flexible-talent": 8,
+          "challenge": 0,
+          "private-pod": 2
+        },
+        "overridden": false,
+        "overrideHistory": []
+      },
+      "provenance": "ai-recommended",
+      "readiness": "ready",
+      "blocked": false,
+      "executionPackage": {
+        "nodeId": "NODE_002",
+        "title": "Resolve: Assistant deployment form undecided",
+        "operatingModel": "flexible-talent",
+        "sourceIds": [
+          "GAP_02",
+          "Q_02"
+        ],
+        "readiness": "ready",
+        "kind": "flexible-talent",
+        "requiredRoles": [
+          "Specialist / Analyst"
+        ],
+        "requiredSkills": [
+          "General engineering"
+        ],
+        "seniority": "Senior specialist",
+        "durationOrCapacity": "1–3 person-days",
+        "responsibilities": [
+          "A documented decision or confirmed answer",
+          "Updated assumptions/requirements"
+        ],
+        "startDependencies": [],
+        "requiredAccessAndEnvironment": [
+          "Access to the relevant stakeholders or source systems"
+        ],
+        "readinessNote": "Ready to assign."
+      }
+    },
+    {
+      "id": "NODE_003",
+      "title": "Resolve: Target phase for the CareEverywhere integration not set",
+      "objective": "Clarify and confirm \"Target phase for the CareEverywhere integration not set\" before dependent implementation proceeds.",
+      "workCategory": "discovery",
+      "scope": "The customer defers the CareEverywhere health information exchange integration past go-live but has not said which later phase should deliver it.",
+      "sourceIds": [
+        "GAP_03",
+        "INT_05",
+        "Q_03"
+      ],
+      "inputs": [
+        "Access to the relevant stakeholders or source systems"
+      ],
+      "deliverables": [
+        "A documented decision or confirmed answer",
+        "Updated assumptions/requirements"
+      ],
+      "acceptanceConditions": [
+        "The open item is resolved and recorded as a reviewed decision."
+      ],
+      "dependsOn": [],
+      "effort": {
+        "minimum": 1,
+        "maximum": 3,
+        "unit": "person-days"
+      },
+      "operatingModel": {
+        "primary": "flexible-talent",
+        "alternatives": [],
+        "confidence": "high",
+        "rationale": [
+          "The work is a focused task for one specialist with known skills.",
+          "A focused technical assessment fits a single specialist.",
+          "One clearly-defined role is required.",
+          "Small, self-contained effort that can be directly managed."
+        ],
+        "sourceIds": [
+          "GAP_03",
+          "INT_05",
+          "Q_03"
+        ],
+        "scores": {
+          "flexible-talent": 8,
+          "challenge": 0,
+          "private-pod": 2
+        },
+        "overridden": false,
+        "overrideHistory": []
+      },
+      "provenance": "ai-recommended",
+      "readiness": "ready",
+      "blocked": false,
+      "executionPackage": {
+        "nodeId": "NODE_003",
+        "title": "Resolve: Target phase for the CareEverywhere integration not set",
+        "operatingModel": "flexible-talent",
+        "sourceIds": [
+          "GAP_03",
+          "INT_05",
+          "Q_03"
+        ],
+        "readiness": "ready",
+        "kind": "flexible-talent",
+        "requiredRoles": [
+          "Specialist / Analyst"
+        ],
+        "requiredSkills": [
+          "General engineering"
+        ],
+        "seniority": "Senior specialist",
+        "durationOrCapacity": "1–3 person-days",
+        "responsibilities": [
+          "A documented decision or confirmed answer",
+          "Updated assumptions/requirements"
+        ],
+        "startDependencies": [],
+        "requiredAccessAndEnvironment": [
+          "Access to the relevant stakeholders or source systems"
+        ],
+        "readinessNote": "Ready to assign."
+      }
+    },
+    {
+      "id": "NODE_004",
+      "title": "Resolve: Does the Epic FHIR R4 sandbox support writing referral data?",
+      "objective": "Clarify and confirm \"Does the Epic FHIR R4 sandbox support writing referral data?\" before dependent implementation proceeds.",
+      "workCategory": "discovery",
+      "scope": "Confirm whether the Epic FHIR R4 sandbox supports writing structured referral data or is currently read-only for patient context.",
+      "sourceIds": [
+        "Q_01",
+        "GAP_01"
+      ],
+      "inputs": [
+        "Access to the relevant stakeholders or source systems"
+      ],
+      "deliverables": [
+        "A documented decision or confirmed answer",
+        "Updated assumptions/requirements"
+      ],
+      "acceptanceConditions": [
+        "The open item is resolved and recorded as a reviewed decision."
+      ],
+      "dependsOn": [],
+      "effort": {
+        "minimum": 2,
+        "maximum": 5,
+        "unit": "person-days"
+      },
+      "operatingModel": {
+        "primary": "flexible-talent",
+        "alternatives": [],
+        "confidence": "high",
+        "rationale": [
+          "The work is a focused task for one specialist with known skills.",
+          "A focused technical assessment fits a single specialist.",
+          "One clearly-defined role is required.",
+          "Small, self-contained effort that can be directly managed."
+        ],
+        "sourceIds": [
+          "Q_01",
+          "GAP_01"
+        ],
+        "scores": {
+          "flexible-talent": 8,
+          "challenge": 0,
+          "private-pod": 2
+        },
+        "overridden": false,
+        "overrideHistory": []
+      },
+      "provenance": "ai-recommended",
+      "readiness": "ready",
+      "blocked": false,
+      "executionPackage": {
+        "nodeId": "NODE_004",
+        "title": "Resolve: Does the Epic FHIR R4 sandbox support writing referral data?",
+        "operatingModel": "flexible-talent",
+        "sourceIds": [
+          "Q_01",
+          "GAP_01"
+        ],
+        "readiness": "ready",
+        "kind": "flexible-talent",
+        "requiredRoles": [
+          "Specialist / Analyst"
+        ],
+        "requiredSkills": [
+          "General engineering"
+        ],
+        "seniority": "Senior specialist",
+        "durationOrCapacity": "2–5 person-days",
+        "responsibilities": [
+          "A documented decision or confirmed answer",
+          "Updated assumptions/requirements"
+        ],
+        "startDependencies": [],
+        "requiredAccessAndEnvironment": [
+          "Access to the relevant stakeholders or source systems"
+        ],
+        "readinessNote": "Ready to assign."
+      }
+    },
+    {
+      "id": "NODE_005",
+      "title": "Resolve: Should the assistant be standalone or embedded in the portal?",
+      "objective": "Clarify and confirm \"Should the assistant be standalone or embedded in the portal?\" before dependent implementation proceeds.",
+      "workCategory": "discovery",
+      "scope": "Confirm whether the patient-support assistant should ship as a standalone application or be embedded in the existing patient portal.",
+      "sourceIds": [
+        "Q_02",
+        "GAP_02"
+      ],
+      "inputs": [
+        "Access to the relevant stakeholders or source systems"
+      ],
+      "deliverables": [
+        "A documented decision or confirmed answer",
+        "Updated assumptions/requirements"
+      ],
+      "acceptanceConditions": [
+        "The open item is resolved and recorded as a reviewed decision."
+      ],
+      "dependsOn": [],
+      "effort": {
+        "minimum": 1,
+        "maximum": 3,
+        "unit": "person-days"
+      },
+      "operatingModel": {
+        "primary": "flexible-talent",
+        "alternatives": [],
+        "confidence": "high",
+        "rationale": [
+          "The work is a focused task for one specialist with known skills.",
+          "A focused technical assessment fits a single specialist.",
+          "One clearly-defined role is required.",
+          "Small, self-contained effort that can be directly managed."
+        ],
+        "sourceIds": [
+          "Q_02",
+          "GAP_02"
+        ],
+        "scores": {
+          "flexible-talent": 8,
+          "challenge": 0,
+          "private-pod": 2
+        },
+        "overridden": false,
+        "overrideHistory": []
+      },
+      "provenance": "ai-recommended",
+      "readiness": "ready",
+      "blocked": false,
+      "executionPackage": {
+        "nodeId": "NODE_005",
+        "title": "Resolve: Should the assistant be standalone or embedded in the portal?",
+        "operatingModel": "flexible-talent",
+        "sourceIds": [
+          "Q_02",
+          "GAP_02"
+        ],
+        "readiness": "ready",
+        "kind": "flexible-talent",
+        "requiredRoles": [
+          "Specialist / Analyst"
+        ],
+        "requiredSkills": [
+          "General engineering"
+        ],
+        "seniority": "Senior specialist",
+        "durationOrCapacity": "1–3 person-days",
+        "responsibilities": [
+          "A documented decision or confirmed answer",
+          "Updated assumptions/requirements"
+        ],
+        "startDependencies": [],
+        "requiredAccessAndEnvironment": [
+          "Access to the relevant stakeholders or source systems"
+        ],
+        "readinessNote": "Ready to assign."
+      }
+    },
+    {
+      "id": "NODE_006",
+      "title": "Resolve: Confirm the target phase for the CareEverywhere integration",
+      "objective": "Clarify and confirm \"Confirm the target phase for the CareEverywhere integration\" before dependent implementation proceeds.",
+      "workCategory": "discovery",
+      "scope": "The customer says the CareEverywhere integration is not required for go-live; confirm which later phase should deliver it so it can be planned and estimated then.",
+      "sourceIds": [
+        "Q_03",
+        "GAP_03"
+      ],
+      "inputs": [
+        "Access to the relevant stakeholders or source systems"
+      ],
+      "deliverables": [
+        "A documented decision or confirmed answer",
+        "Updated assumptions/requirements"
+      ],
+      "acceptanceConditions": [
+        "The open item is resolved and recorded as a reviewed decision."
+      ],
+      "dependsOn": [],
+      "effort": {
+        "minimum": 1,
+        "maximum": 3,
+        "unit": "person-days"
+      },
+      "operatingModel": {
+        "primary": "flexible-talent",
+        "alternatives": [],
+        "confidence": "high",
+        "rationale": [
+          "The work is a focused task for one specialist with known skills.",
+          "A focused technical assessment fits a single specialist.",
+          "One clearly-defined role is required.",
+          "Small, self-contained effort that can be directly managed."
+        ],
+        "sourceIds": [
+          "Q_03",
+          "GAP_03"
+        ],
+        "scores": {
+          "flexible-talent": 8,
+          "challenge": 0,
+          "private-pod": 2
+        },
+        "overridden": false,
+        "overrideHistory": []
+      },
+      "provenance": "ai-recommended",
+      "readiness": "ready",
+      "blocked": false,
+      "executionPackage": {
+        "nodeId": "NODE_006",
+        "title": "Resolve: Confirm the target phase for the CareEverywhere integration",
+        "operatingModel": "flexible-talent",
+        "sourceIds": [
+          "Q_03",
+          "GAP_03"
+        ],
+        "readiness": "ready",
+        "kind": "flexible-talent",
+        "requiredRoles": [
+          "Specialist / Analyst"
+        ],
+        "requiredSkills": [
+          "General engineering"
+        ],
+        "seniority": "Senior specialist",
+        "durationOrCapacity": "1–3 person-days",
+        "responsibilities": [
+          "A documented decision or confirmed answer",
+          "Updated assumptions/requirements"
+        ],
+        "startDependencies": [],
+        "requiredAccessAndEnvironment": [
+          "Access to the relevant stakeholders or source systems"
+        ],
+        "readinessNote": "Ready to assign."
+      }
+    },
+    {
+      "id": "NODE_007",
+      "title": "Integrate Epic FHIR R4 write and read integration",
+      "objective": "Deliver the Epic FHIR R4 write and read integration integration (internal · api).",
+      "workCategory": "integration",
+      "scope": "bidirectional integration with Epic EHR",
+      "sourceIds": [
+        "IF_01"
+      ],
+      "inputs": [
+        "FHIR R4 REST APIs contract",
+        "Mutual TLS (mTLS) certificate authentication credentials"
+      ],
+      "deliverables": [
+        "Epic FHIR R4 write and read integration integration",
+        "Error handling & retry",
+        "Integration tests"
+      ],
+      "acceptanceConditions": [
+        "Messages flow in the specified direction.",
+        "Failures are handled per the retry policy."
+      ],
+      "dependsOn": [],
+      "effort": {
+        "minimum": 4,
+        "maximum": 8,
+        "unit": "person-days"
+      },
+      "operatingModel": {
+        "primary": "flexible-talent",
+        "alternatives": [],
+        "confidence": "high",
+        "rationale": [
+          "The work is a focused task for one specialist with known skills.",
+          "One clearly-defined role is required.",
+          "Small, self-contained effort that can be directly managed."
+        ],
+        "sourceIds": [
+          "IF_01"
+        ],
+        "scores": {
+          "flexible-talent": 6,
+          "challenge": 2,
+          "private-pod": 2
+        },
+        "overridden": false,
+        "overrideHistory": []
+      },
+      "provenance": "ai-recommended",
+      "readiness": "ready",
+      "blocked": false,
+      "executionPackage": {
+        "nodeId": "NODE_007",
+        "title": "Integrate Epic FHIR R4 write and read integration",
+        "operatingModel": "flexible-talent",
+        "sourceIds": [
+          "IF_01"
+        ],
+        "readiness": "ready",
+        "kind": "flexible-talent",
+        "requiredRoles": [
+          "Integration Engineer"
+        ],
+        "requiredSkills": [
+          "API design",
+          "Messaging/ETL",
+          "Error handling"
+        ],
+        "seniority": "Mid–senior",
+        "durationOrCapacity": "4–8 person-days",
+        "responsibilities": [
+          "Epic FHIR R4 write and read integration integration",
+          "Error handling & retry",
+          "Integration tests"
+        ],
+        "startDependencies": [],
+        "requiredAccessAndEnvironment": [
+          "FHIR R4 REST APIs contract",
+          "Mutual TLS (mTLS) certificate authentication credentials"
+        ],
+        "readinessNote": "Ready to assign."
+      }
+    },
+    {
+      "id": "NODE_008",
+      "title": "Integrate Inbound document channel integration",
+      "objective": "Deliver the Inbound document channel integration integration (internal · api).",
+      "workCategory": "integration",
+      "scope": "inbound integration with Patient Portal",
+      "sourceIds": [
+        "IF_02"
+      ],
+      "inputs": [
+        "REST/JSON over HTTPS contract",
+        "OAuth 2.0 client credentials grant credentials"
+      ],
+      "deliverables": [
+        "Inbound document channel integration integration",
+        "Error handling & retry",
+        "Integration tests"
+      ],
+      "acceptanceConditions": [
+        "Messages flow in the specified direction.",
+        "Failures are handled per the retry policy."
+      ],
+      "dependsOn": [],
+      "effort": {
+        "minimum": 4,
+        "maximum": 8,
+        "unit": "person-days"
+      },
+      "operatingModel": {
+        "primary": "flexible-talent",
+        "alternatives": [],
+        "confidence": "high",
+        "rationale": [
+          "The work is a focused task for one specialist with known skills.",
+          "One clearly-defined role is required.",
+          "Small, self-contained effort that can be directly managed."
+        ],
+        "sourceIds": [
+          "IF_02"
+        ],
+        "scores": {
+          "flexible-talent": 6,
+          "challenge": 2,
+          "private-pod": 2
+        },
+        "overridden": false,
+        "overrideHistory": []
+      },
+      "provenance": "ai-recommended",
+      "readiness": "ready",
+      "blocked": false,
+      "executionPackage": {
+        "nodeId": "NODE_008",
+        "title": "Integrate Inbound document channel integration",
+        "operatingModel": "flexible-talent",
+        "sourceIds": [
+          "IF_02"
+        ],
+        "readiness": "ready",
+        "kind": "flexible-talent",
+        "requiredRoles": [
+          "Integration Engineer"
+        ],
+        "requiredSkills": [
+          "API design",
+          "Messaging/ETL",
+          "Error handling"
+        ],
+        "seniority": "Mid–senior",
+        "durationOrCapacity": "4–8 person-days",
+        "responsibilities": [
+          "Inbound document channel integration integration",
+          "Error handling & retry",
+          "Integration tests"
+        ],
+        "startDependencies": [],
+        "requiredAccessAndEnvironment": [
+          "REST/JSON over HTTPS contract",
+          "OAuth 2.0 client credentials grant credentials"
+        ],
+        "readinessNote": "Ready to assign."
+      }
+    },
+    {
+      "id": "NODE_009",
+      "title": "Integrate Five9 handoff integration",
+      "objective": "Deliver the Five9 handoff integration integration (external · api).",
+      "workCategory": "integration",
+      "scope": "outbound integration with Five9 Contact Centre",
+      "sourceIds": [
+        "IF_03"
+      ],
+      "inputs": [
+        "REST/JSON over HTTPS contract",
+        "OAuth 2.0 client credentials grant credentials"
+      ],
+      "deliverables": [
+        "Five9 handoff integration integration",
+        "Error handling & retry",
+        "Integration tests"
+      ],
+      "acceptanceConditions": [
+        "Messages flow in the specified direction.",
+        "Failures are handled per the retry policy."
+      ],
+      "dependsOn": [],
+      "effort": {
+        "minimum": 4,
+        "maximum": 8,
+        "unit": "person-days"
+      },
+      "operatingModel": {
+        "primary": "flexible-talent",
+        "alternatives": [],
+        "confidence": "high",
+        "rationale": [
+          "The work is a focused task for one specialist with known skills.",
+          "One clearly-defined role is required.",
+          "Small, self-contained effort that can be directly managed."
+        ],
+        "sourceIds": [
+          "IF_03"
+        ],
+        "scores": {
+          "flexible-talent": 6,
+          "challenge": 2,
+          "private-pod": 2
+        },
+        "overridden": false,
+        "overrideHistory": []
+      },
+      "provenance": "ai-recommended",
+      "readiness": "ready",
+      "blocked": false,
+      "executionPackage": {
+        "nodeId": "NODE_009",
+        "title": "Integrate Five9 handoff integration",
+        "operatingModel": "flexible-talent",
+        "sourceIds": [
+          "IF_03"
+        ],
+        "readiness": "ready",
+        "kind": "flexible-talent",
+        "requiredRoles": [
+          "Integration Engineer"
+        ],
+        "requiredSkills": [
+          "API design",
+          "Messaging/ETL",
+          "Error handling"
+        ],
+        "seniority": "Mid–senior",
+        "durationOrCapacity": "4–8 person-days",
+        "responsibilities": [
+          "Five9 handoff integration integration",
+          "Error handling & retry",
+          "Integration tests"
+        ],
+        "startDependencies": [],
+        "requiredAccessAndEnvironment": [
+          "REST/JSON over HTTPS contract",
+          "OAuth 2.0 client credentials grant credentials"
+        ],
+        "readinessNote": "Ready to assign."
+      }
+    },
+    {
+      "id": "NODE_010",
+      "title": "Integrate Patient-portal authentication reuse",
+      "objective": "Deliver the Patient-portal authentication reuse integration (internal · api).",
+      "workCategory": "integration",
+      "scope": "inbound integration with Patient Portal",
+      "sourceIds": [
+        "IF_04"
+      ],
+      "inputs": [
+        "OIDC/SAML federation (browser redirect) with Patient Portal over HTTPS contract",
+        "User-delegated OIDC/SAML federation with Patient Portal (authorization-code flow): the signed-in user's own identity is carried through, never a machine-to-machine client-credentials grant. credentials"
+      ],
+      "deliverables": [
+        "Patient-portal authentication reuse integration",
+        "Error handling & retry",
+        "Integration tests"
+      ],
+      "acceptanceConditions": [
+        "Messages flow in the specified direction.",
+        "Failures are handled per the retry policy."
+      ],
+      "dependsOn": [],
+      "effort": {
+        "minimum": 4,
+        "maximum": 8,
+        "unit": "person-days"
+      },
+      "operatingModel": {
+        "primary": "flexible-talent",
+        "alternatives": [],
+        "confidence": "high",
+        "rationale": [
+          "The work is a focused task for one specialist with known skills.",
+          "One clearly-defined role is required.",
+          "Small, self-contained effort that can be directly managed."
+        ],
+        "sourceIds": [
+          "IF_04"
+        ],
+        "scores": {
+          "flexible-talent": 6,
+          "challenge": 2,
+          "private-pod": 2
+        },
+        "overridden": false,
+        "overrideHistory": []
+      },
+      "provenance": "ai-recommended",
+      "readiness": "ready",
+      "blocked": false,
+      "executionPackage": {
+        "nodeId": "NODE_010",
+        "title": "Integrate Patient-portal authentication reuse",
+        "operatingModel": "flexible-talent",
+        "sourceIds": [
+          "IF_04"
+        ],
+        "readiness": "ready",
+        "kind": "flexible-talent",
+        "requiredRoles": [
+          "Integration Engineer"
+        ],
+        "requiredSkills": [
+          "API design",
+          "Messaging/ETL",
+          "Error handling"
+        ],
+        "seniority": "Mid–senior",
+        "durationOrCapacity": "4–8 person-days",
+        "responsibilities": [
+          "Patient-portal authentication reuse integration",
+          "Error handling & retry",
+          "Integration tests"
+        ],
+        "startDependencies": [],
+        "requiredAccessAndEnvironment": [
+          "OIDC/SAML federation (browser redirect) with Patient Portal over HTTPS contract",
+          "User-delegated OIDC/SAML federation with Patient Portal (authorization-code flow): the signed-in user's own identity is carried through, never a machine-to-machine client-credentials grant. credentials"
+        ],
+        "readinessNote": "Ready to assign."
+      }
+    },
+    {
+      "id": "NODE_011",
+      "title": "Build AI capability: Retrieval-augmented generation (RAG) assistant: Patient-support assistant Q&A and 3 related functions",
+      "objective": "Implement \"Retrieval-augmented generation (RAG) assistant: Patient-support assistant Q&A and 3 related functions\" (Retrieval-augmented generation (RAG) assistant), including evaluation and safety controls.",
+      "workCategory": "ai-implementation",
+      "scope": "Retrieval-augmented generation (RAG) assistant delivering FR_05 (The patient-support assistant answers common questions about appointment preparation, clinic locations, hours and accepted insurance plans.); FR_06 (The assistant retrieves answers from approved clinic policy and FAQ documents rather than generating unsourced medical guidance.); FR_07 (The assistant recognises when a question requires clinical judgement or involves symptoms and hands off to a human staff member.). Also shaped by BR_04, FR_09, NFR_03, NFR_05, NFR_06, INT_03, INT_04, DATA_02, DATA_03, DATA_05, SEC_06, TECH_01, TECH_02, CON_01, CON_02, SYS_05, PER_02, RSK_02, GAP_02, ASM_02, Q_02.",
+      "sourceIds": [
+        "AIUC_01",
+        "BR_04",
+        "FR_05",
+        "FR_06",
+        "FR_07",
+        "FR_09",
+        "NFR_03",
+        "NFR_05",
+        "NFR_06",
+        "INT_03",
+        "INT_04",
+        "DATA_02",
+        "DATA_03",
+        "DATA_05",
+        "SEC_06",
+        "TECH_01",
+        "TECH_02",
+        "CON_01",
+        "CON_02",
+        "SYS_05",
+        "PER_02",
+        "RSK_02",
+        "GAP_02",
+        "ASM_02",
+        "Q_02"
+      ],
+      "inputs": [
+        "Grounding data sources",
+        "Evaluation dataset"
+      ],
+      "deliverables": [
+        "Retrieval-augmented generation (RAG) assistant: Patient-support assistant Q&A and 3 related functions implementation",
+        "Evaluation harness",
+        "Safety guardrails"
+      ],
+      "acceptanceConditions": [
+        "Outputs are grounded and evaluated.",
+        "Human review is enforced where required."
+      ],
+      "dependsOn": [],
+      "effort": {
+        "minimum": 6,
+        "maximum": 12,
+        "unit": "person-days"
+      },
+      "operatingModel": {
+        "primary": "private-pod",
+        "alternatives": [],
+        "confidence": "high",
+        "rationale": [
+          "The components are strongly coupled and must be built together.",
+          "Regulated requirements need sustained delivery ownership."
+        ],
+        "sourceIds": [
+          "AIUC_01",
+          "BR_04",
+          "FR_05",
+          "FR_06",
+          "FR_07",
+          "FR_09",
+          "NFR_03",
+          "NFR_05"
+        ],
+        "scores": {
+          "flexible-talent": 0,
+          "challenge": 2,
+          "private-pod": 5
+        },
+        "overridden": false,
+        "overrideHistory": []
+      },
+      "provenance": "ai-recommended",
+      "readiness": "review-required",
+      "blocked": false,
+      "executionPackage": {
+        "nodeId": "NODE_011",
+        "title": "Build AI capability: Retrieval-augmented generation (RAG) assistant: Patient-support assistant Q&A and 3 related functions",
+        "operatingModel": "private-pod",
+        "sourceIds": [
+          "AIUC_01",
+          "BR_04",
+          "FR_05",
+          "FR_06",
+          "FR_07",
+          "FR_09",
+          "NFR_03",
+          "NFR_05",
+          "NFR_06",
+          "INT_03",
+          "INT_04",
+          "DATA_02",
+          "DATA_03",
+          "DATA_05",
+          "SEC_06",
+          "TECH_01",
+          "TECH_02",
+          "CON_01",
+          "CON_02",
+          "SYS_05",
+          "PER_02",
+          "RSK_02",
+          "GAP_02",
+          "ASM_02",
+          "Q_02"
+        ],
+        "readiness": "review-required",
+        "kind": "private-pod",
+        "objective": "Implement \"Retrieval-augmented generation (RAG) assistant: Patient-support assistant Q&A and 3 related functions\" (Retrieval-augmented generation (RAG) assistant), including evaluation and safety controls.",
+        "requiredRoles": [
+          "AI/ML Engineer",
+          "Data Engineer"
+        ],
+        "requiredSkills": [
+          "LLM/ML",
+          "RAG",
+          "Evaluation",
+          "Safety"
+        ],
+        "technicalLeadership": "A technical lead owns architecture decisions and coordination.",
+        "componentOwnership": "Retrieval-augmented generation (RAG) assistant delivering FR_05 (The patient-support assistant answers common questions about appointment preparation, clinic locations, hours and accepted insurance plans.); FR_06 (The assistant retrieves answers from approved clinic policy and FAQ documents rather than generating unsourced medical guidance.); FR_07 (The assistant recognises when a question requires clinical judgement or involves symptoms and hands off to a human staff member.). Also shaped by BR_04, FR_09, NFR_03, NFR_05, NFR_06, INT_03, INT_04, DATA_02, DATA_03, DATA_05, SEC_06, TECH_01, TECH_02, CON_01, CON_02, SYS_05, PER_02, RSK_02, GAP_02, ASM_02, Q_02.",
+        "deliveryResponsibilities": [
+          "Retrieval-augmented generation (RAG) assistant: Patient-support assistant Q&A and 3 related functions implementation",
+          "Evaluation harness",
+          "Safety guardrails"
+        ],
+        "securityAndAccess": "Controlled access to restricted systems/data; least-privilege enforced.",
+        "coordinationDependencies": [],
+        "expectedDuration": "6–12 person-days",
+        "definitionOfCompletion": [
+          "Outputs are grounded and evaluated.",
+          "Human review is enforced where required."
+        ],
+        "readinessNote": "Resolve linked items before mobilizing the pod."
+      }
+    },
+    {
+      "id": "NODE_012",
+      "title": "Build AI capability: Document extraction pipeline with human validation: Structured field extraction and 1 related function",
+      "objective": "Implement \"Document extraction pipeline with human validation: Structured field extraction and 1 related function\" (Document extraction pipeline with human validation), including evaluation and safety controls.",
+      "workCategory": "ai-implementation",
+      "scope": "Document extraction pipeline with human validation delivering FR_02 (Extract structured fields from each document, including patient identifiers, referring provider, requested service and supporting clinical notes.); FR_10 (Documents where extraction confidence is low are flagged so medical records clerks review those first.). Also shaped by NFR_02, NFR_05, TECH_02, CON_03, RSK_01.",
+      "sourceIds": [
+        "AIUC_02",
+        "FR_02",
+        "FR_10",
+        "NFR_02",
+        "NFR_05",
+        "TECH_02",
+        "CON_03",
+        "RSK_01"
+      ],
+      "inputs": [
+        "Grounding data sources",
+        "Evaluation dataset"
+      ],
+      "deliverables": [
+        "Document extraction pipeline with human validation: Structured field extraction and 1 related function implementation",
+        "Evaluation harness",
+        "Safety guardrails"
+      ],
+      "acceptanceConditions": [
+        "Outputs are grounded and evaluated.",
+        "Human review is enforced where required."
+      ],
+      "dependsOn": [],
+      "effort": {
+        "minimum": 6,
+        "maximum": 12,
+        "unit": "person-days"
+      },
+      "operatingModel": {
+        "primary": "private-pod",
+        "alternatives": [],
+        "confidence": "high",
+        "rationale": [
+          "The components are strongly coupled and must be built together.",
+          "Regulated requirements need sustained delivery ownership."
+        ],
+        "sourceIds": [
+          "AIUC_02",
+          "FR_02",
+          "FR_10",
+          "NFR_02",
+          "NFR_05",
+          "TECH_02",
+          "CON_03",
+          "RSK_01"
+        ],
+        "scores": {
+          "flexible-talent": 0,
+          "challenge": 2,
+          "private-pod": 5
+        },
+        "overridden": false,
+        "overrideHistory": []
+      },
+      "provenance": "ai-recommended",
+      "readiness": "review-required",
+      "blocked": false,
+      "executionPackage": {
+        "nodeId": "NODE_012",
+        "title": "Build AI capability: Document extraction pipeline with human validation: Structured field extraction and 1 related function",
+        "operatingModel": "private-pod",
+        "sourceIds": [
+          "AIUC_02",
+          "FR_02",
+          "FR_10",
+          "NFR_02",
+          "NFR_05",
+          "TECH_02",
+          "CON_03",
+          "RSK_01"
+        ],
+        "readiness": "review-required",
+        "kind": "private-pod",
+        "objective": "Implement \"Document extraction pipeline with human validation: Structured field extraction and 1 related function\" (Document extraction pipeline with human validation), including evaluation and safety controls.",
+        "requiredRoles": [
+          "AI/ML Engineer",
+          "Data Engineer"
+        ],
+        "requiredSkills": [
+          "LLM/ML",
+          "RAG",
+          "Evaluation",
+          "Safety"
+        ],
+        "technicalLeadership": "A technical lead owns architecture decisions and coordination.",
+        "componentOwnership": "Document extraction pipeline with human validation delivering FR_02 (Extract structured fields from each document, including patient identifiers, referring provider, requested service and supporting clinical notes.); FR_10 (Documents where extraction confidence is low are flagged so medical records clerks review those first.). Also shaped by NFR_02, NFR_05, TECH_02, CON_03, RSK_01.",
+        "deliveryResponsibilities": [
+          "Document extraction pipeline with human validation: Structured field extraction and 1 related function implementation",
+          "Evaluation harness",
+          "Safety guardrails"
+        ],
+        "securityAndAccess": "Controlled access to restricted systems/data; least-privilege enforced.",
+        "coordinationDependencies": [],
+        "expectedDuration": "6–12 person-days",
+        "definitionOfCompletion": [
+          "Outputs are grounded and evaluated.",
+          "Human review is enforced where required."
+        ],
+        "readinessNote": "Resolve linked items before mobilizing the pod."
+      }
+    },
+    {
+      "id": "NODE_013",
+      "title": "Data platform & migration",
+      "objective": "Deliver data domains, pipelines, quality, lineage, and any required migration.",
+      "workCategory": "data-engineering",
+      "scope": "5 data domain(s); 5 data requirement(s)",
+      "sourceIds": [
+        "DATA_01",
+        "DATA_02",
+        "DATA_03",
+        "DATA_04",
+        "DATA_05",
+        "DD_01",
+        "DD_02",
+        "DD_03",
+        "DD_04",
+        "DD_05"
+      ],
+      "inputs": [
+        "Source schemas",
+        "Data classification policy"
+      ],
+      "deliverables": [
+        "Data pipelines",
+        "Quality & lineage controls",
+        "Migration (if in scope)"
+      ],
+      "acceptanceConditions": [
+        "Data is validated and reconciled.",
+        "Lineage is traceable."
+      ],
+      "dependsOn": [],
+      "effort": {
+        "minimum": 8,
+        "maximum": 15,
+        "unit": "person-days"
+      },
+      "operatingModel": {
+        "primary": "private-pod",
+        "alternatives": [],
+        "confidence": "high",
+        "rationale": [
+          "The components are strongly coupled and must be built together.",
+          "Restricted/sensitive data requires a controlled, vetted team.",
+          "Regulated requirements need sustained delivery ownership."
+        ],
+        "sourceIds": [
+          "DATA_01",
+          "DATA_02",
+          "DATA_03",
+          "DATA_04",
+          "DATA_05",
+          "DD_01",
+          "DD_02",
+          "DD_03"
+        ],
+        "scores": {
+          "flexible-talent": 2,
+          "challenge": 2,
+          "private-pod": 8
+        },
+        "overridden": false,
+        "overrideHistory": []
+      },
+      "provenance": "ai-recommended",
+      "readiness": "ready",
+      "blocked": false,
+      "executionPackage": {
+        "nodeId": "NODE_013",
+        "title": "Data platform & migration",
+        "operatingModel": "private-pod",
+        "sourceIds": [
+          "DATA_01",
+          "DATA_02",
+          "DATA_03",
+          "DATA_04",
+          "DATA_05",
+          "DD_01",
+          "DD_02",
+          "DD_03",
+          "DD_04",
+          "DD_05"
+        ],
+        "readiness": "ready",
+        "kind": "private-pod",
+        "objective": "Deliver data domains, pipelines, quality, lineage, and any required migration.",
+        "requiredRoles": [
+          "Data Engineer"
+        ],
+        "requiredSkills": [
+          "Pipelines",
+          "Data quality",
+          "Lineage"
+        ],
+        "technicalLeadership": "A technical lead owns architecture decisions and coordination.",
+        "componentOwnership": "5 data domain(s); 5 data requirement(s)",
+        "deliveryResponsibilities": [
+          "Data pipelines",
+          "Quality & lineage controls",
+          "Migration (if in scope)"
+        ],
+        "securityAndAccess": "Controlled access to restricted systems/data; least-privilege enforced.",
+        "coordinationDependencies": [],
+        "expectedDuration": "8–15 person-days",
+        "definitionOfCompletion": [
+          "Data is validated and reconciled.",
+          "Lineage is traceable."
+        ],
+        "readinessNote": "Ready to mobilize."
+      }
+    },
+    {
+      "id": "NODE_014",
+      "title": "Security & compliance controls",
+      "objective": "Implement security, privacy, and compliance controls across the solution.",
+      "workCategory": "security",
+      "scope": "6 security/compliance requirement(s)",
+      "sourceIds": [
+        "SEC_01",
+        "SEC_02",
+        "SEC_03",
+        "SEC_04",
+        "SEC_05",
+        "SEC_06"
+      ],
+      "inputs": [
+        "Compliance scope",
+        "Threat model"
+      ],
+      "deliverables": [
+        "Access controls",
+        "Audit logging",
+        "Compliance evidence"
+      ],
+      "acceptanceConditions": [
+        "Unauthorized access is rejected.",
+        "Controls meet the stated compliance scope."
+      ],
+      "dependsOn": [],
+      "effort": {
+        "minimum": 5,
+        "maximum": 10,
+        "unit": "person-days"
+      },
+      "operatingModel": {
+        "primary": "private-pod",
+        "alternatives": [],
+        "confidence": "high",
+        "rationale": [
+          "Restricted/sensitive data requires a controlled, vetted team.",
+          "Regulated requirements need sustained delivery ownership.",
+          "Security-critical, coupled work benefits from a dedicated pod."
+        ],
+        "sourceIds": [
+          "SEC_01",
+          "SEC_02",
+          "SEC_03",
+          "SEC_04",
+          "SEC_05",
+          "SEC_06"
+        ],
+        "scores": {
+          "flexible-talent": 2,
+          "challenge": 2,
+          "private-pod": 6
+        },
+        "overridden": false,
+        "overrideHistory": []
+      },
+      "provenance": "ai-recommended",
+      "readiness": "ready",
+      "blocked": false,
+      "executionPackage": {
+        "nodeId": "NODE_014",
+        "title": "Security & compliance controls",
+        "operatingModel": "private-pod",
+        "sourceIds": [
+          "SEC_01",
+          "SEC_02",
+          "SEC_03",
+          "SEC_04",
+          "SEC_05",
+          "SEC_06"
+        ],
+        "readiness": "ready",
+        "kind": "private-pod",
+        "objective": "Implement security, privacy, and compliance controls across the solution.",
+        "requiredRoles": [
+          "Security Engineer"
+        ],
+        "requiredSkills": [
+          "IAM",
+          "Compliance",
+          "Threat modeling"
+        ],
+        "technicalLeadership": "A technical lead owns architecture decisions and coordination.",
+        "componentOwnership": "6 security/compliance requirement(s)",
+        "deliveryResponsibilities": [
+          "Access controls",
+          "Audit logging",
+          "Compliance evidence"
+        ],
+        "securityAndAccess": "Controlled access to restricted systems/data; least-privilege enforced.",
+        "coordinationDependencies": [],
+        "expectedDuration": "5–10 person-days",
+        "definitionOfCompletion": [
+          "Unauthorized access is rejected.",
+          "Controls meet the stated compliance scope."
+        ],
+        "readinessNote": "Ready to mobilize."
+      }
+    },
+    {
+      "id": "NODE_015",
+      "title": "Explore the user experience",
+      "objective": "Produce UX concepts and a validated interaction design for the core journeys.",
+      "workCategory": "ux-design",
+      "scope": "2 persona(s); core functional journeys",
+      "sourceIds": [
+        "PER_01",
+        "PER_02",
+        "FR_01",
+        "FR_02",
+        "FR_03",
+        "FR_04"
+      ],
+      "inputs": [
+        "Personas",
+        "Core journeys"
+      ],
+      "deliverables": [
+        "UX concepts",
+        "Validated interaction design"
+      ],
+      "acceptanceConditions": [
+        "Designs cover the core journeys.",
+        "Designs meet usability criteria."
+      ],
+      "dependsOn": [],
+      "effort": {
+        "minimum": 5,
+        "maximum": 10,
+        "unit": "person-days"
+      },
+      "operatingModel": {
+        "primary": "challenge",
+        "alternatives": [],
+        "confidence": "high",
+        "rationale": [
+          "Multiple approaches or perspectives would add value.",
+          "The scope is bounded and can be evaluated against clear criteria.",
+          "The work can be packaged and delivered independently.",
+          "Design exploration is well suited to competitive delivery."
+        ],
+        "sourceIds": [
+          "PER_01",
+          "PER_02",
+          "FR_01",
+          "FR_02",
+          "FR_03",
+          "FR_04"
+        ],
+        "scores": {
+          "flexible-talent": 2,
+          "challenge": 8,
+          "private-pod": 2
+        },
+        "overridden": false,
+        "overrideHistory": []
+      },
+      "provenance": "ai-recommended",
+      "readiness": "ready",
+      "blocked": false,
+      "executionPackage": {
+        "nodeId": "NODE_015",
+        "title": "Explore the user experience",
+        "operatingModel": "challenge",
+        "sourceIds": [
+          "PER_01",
+          "PER_02",
+          "FR_01",
+          "FR_02",
+          "FR_03",
+          "FR_04"
+        ],
+        "readiness": "ready",
+        "kind": "challenge",
+        "objective": "Produce UX concepts and a validated interaction design for the core journeys.",
+        "businessAndTechnicalContext": "2 persona(s); core functional journeys",
+        "deliverables": [
+          "UX concepts",
+          "Validated interaction design"
+        ],
+        "evaluationCriteria": [
+          "Designs cover the core journeys.",
+          "Designs meet usability criteria."
+        ],
+        "acceptanceConditions": [
+          "Designs cover the core journeys.",
+          "Designs meet usability criteria."
+        ],
+        "inputAssets": [
+          "Personas",
+          "Core journeys"
+        ],
+        "requiredTechnologies": [
+          "Interaction design",
+          "Usability testing"
+        ],
+        "dependencies": [],
+        "confidentialityLimitations": "No unrestricted access to sensitive information is required.",
+        "expectedReviewProcess": "Submissions reviewed against the evaluation criteria; winner selected on score.",
+        "readinessNote": "Ready to launch."
+      }
+    },
+    {
+      "id": "NODE_016",
+      "title": "Build user-apps",
+      "objective": "Implement the user-apps components and their interfaces.",
+      "workCategory": "solution-delivery",
+      "scope": "1 architecture component(s) in user-apps",
+      "sourceIds": [
+        "ARC_01",
+        "NFR_06"
+      ],
+      "inputs": [
+        "Approved architecture",
+        "Interface contracts"
+      ],
+      "deliverables": [
+        "user-apps components",
+        "Automated tests"
+      ],
+      "acceptanceConditions": [
+        "Components meet their stated purpose.",
+        "Automated tests pass."
+      ],
+      "dependsOn": [
+        "NODE_015",
+        "NODE_013",
+        "NODE_014"
+      ],
+      "effort": {
+        "minimum": 7,
+        "maximum": 12,
+        "unit": "person-days"
+      },
+      "operatingModel": {
+        "primary": "private-pod",
+        "alternatives": [],
+        "confidence": "high",
+        "rationale": [
+          "The work needs continuous technical coordination across roles.",
+          "Regulated requirements need sustained delivery ownership.",
+          "Multiple technical roles must work together."
+        ],
+        "sourceIds": [
+          "ARC_01",
+          "NFR_06"
+        ],
+        "scores": {
+          "flexible-talent": 0,
+          "challenge": 2,
+          "private-pod": 7
+        },
+        "overridden": false,
+        "overrideHistory": []
+      },
+      "provenance": "ai-recommended",
+      "readiness": "review-required",
+      "blocked": false,
+      "executionPackage": {
+        "nodeId": "NODE_016",
+        "title": "Build user-apps",
+        "operatingModel": "private-pod",
+        "sourceIds": [
+          "ARC_01",
+          "NFR_06"
+        ],
+        "readiness": "review-required",
+        "kind": "private-pod",
+        "objective": "Implement the user-apps components and their interfaces.",
+        "requiredRoles": [
+          "Tech Lead",
+          "Backend Engineer",
+          "Frontend Engineer"
+        ],
+        "requiredSkills": [
+          "General engineering"
+        ],
+        "technicalLeadership": "A technical lead owns architecture decisions and coordination.",
+        "componentOwnership": "1 architecture component(s) in user-apps",
+        "deliveryResponsibilities": [
+          "user-apps components",
+          "Automated tests"
+        ],
+        "securityAndAccess": "Standard delivery access.",
+        "coordinationDependencies": [
+          "NODE_015",
+          "NODE_013",
+          "NODE_014"
+        ],
+        "expectedDuration": "7–12 person-days",
+        "definitionOfCompletion": [
+          "Components meet their stated purpose.",
+          "Automated tests pass."
+        ],
+        "readinessNote": "Resolve linked items before mobilizing the pod."
+      }
+    },
+    {
+      "id": "NODE_017",
+      "title": "Build api",
+      "objective": "Implement the api components and their interfaces.",
+      "workCategory": "backend-api",
+      "scope": "2 architecture component(s) in api",
+      "sourceIds": [
+        "ARC_02",
+        "ARC_15",
+        "NFR_01",
+        "NFR_06",
+        "SEC_03",
+        "INT_01"
+      ],
+      "inputs": [
+        "Approved architecture",
+        "Interface contracts"
+      ],
+      "deliverables": [
+        "api components",
+        "Automated tests"
+      ],
+      "acceptanceConditions": [
+        "Components meet their stated purpose.",
+        "Automated tests pass."
+      ],
+      "dependsOn": [
+        "NODE_001",
+        "NODE_015",
+        "NODE_013",
+        "NODE_014"
+      ],
+      "effort": {
+        "minimum": 8,
+        "maximum": 14,
+        "unit": "person-days"
+      },
+      "operatingModel": {
+        "primary": "private-pod",
+        "alternatives": [
+          "challenge"
+        ],
+        "confidence": "low",
+        "rationale": [
+          "Regulated requirements need sustained delivery ownership.",
+          "Confidence is low — review the alternative model(s) before committing."
+        ],
+        "sourceIds": [
+          "ARC_02",
+          "ARC_15",
+          "NFR_01",
+          "NFR_06",
+          "SEC_03",
+          "INT_01"
+        ],
+        "scores": {
+          "flexible-talent": 0,
+          "challenge": 2,
+          "private-pod": 2
+        },
+        "overridden": false,
+        "overrideHistory": []
+      },
+      "provenance": "ai-recommended",
+      "readiness": "review-required",
+      "blocked": false,
+      "executionPackage": {
+        "nodeId": "NODE_017",
+        "title": "Build api",
+        "operatingModel": "private-pod",
+        "sourceIds": [
+          "ARC_02",
+          "ARC_15",
+          "NFR_01",
+          "NFR_06",
+          "SEC_03",
+          "INT_01"
+        ],
+        "readiness": "review-required",
+        "kind": "private-pod",
+        "objective": "Implement the api components and their interfaces.",
+        "requiredRoles": [
+          "Backend Engineer"
+        ],
+        "requiredSkills": [
+          "Service design",
+          "Databases"
+        ],
+        "technicalLeadership": "A technical lead owns architecture decisions and coordination.",
+        "componentOwnership": "2 architecture component(s) in api",
+        "deliveryResponsibilities": [
+          "api components",
+          "Automated tests"
+        ],
+        "securityAndAccess": "Standard delivery access.",
+        "coordinationDependencies": [
+          "NODE_001",
+          "NODE_015",
+          "NODE_013",
+          "NODE_014"
+        ],
+        "expectedDuration": "8–14 person-days",
+        "definitionOfCompletion": [
+          "Components meet their stated purpose.",
+          "Automated tests pass."
+        ],
+        "readinessNote": "Resolve linked items before mobilizing the pod."
+      }
+    },
+    {
+      "id": "NODE_018",
+      "title": "Build backend",
+      "objective": "Implement the backend components and their interfaces.",
+      "workCategory": "solution-delivery",
+      "scope": "1 architecture component(s) in backend",
+      "sourceIds": [
+        "ARC_03",
+        "NFR_01",
+        "NFR_06"
+      ],
+      "inputs": [
+        "Approved architecture",
+        "Interface contracts"
+      ],
+      "deliverables": [
+        "backend components",
+        "Automated tests"
+      ],
+      "acceptanceConditions": [
+        "Components meet their stated purpose.",
+        "Automated tests pass."
+      ],
+      "dependsOn": [
+        "NODE_015",
+        "NODE_013",
+        "NODE_014"
+      ],
+      "effort": {
+        "minimum": 7,
+        "maximum": 12,
+        "unit": "person-days"
+      },
+      "operatingModel": {
+        "primary": "private-pod",
+        "alternatives": [],
+        "confidence": "high",
+        "rationale": [
+          "The work needs continuous technical coordination across roles.",
+          "Regulated requirements need sustained delivery ownership.",
+          "Multiple technical roles must work together."
+        ],
+        "sourceIds": [
+          "ARC_03",
+          "NFR_01",
+          "NFR_06"
+        ],
+        "scores": {
+          "flexible-talent": 0,
+          "challenge": 2,
+          "private-pod": 7
+        },
+        "overridden": false,
+        "overrideHistory": []
+      },
+      "provenance": "ai-recommended",
+      "readiness": "review-required",
+      "blocked": false,
+      "executionPackage": {
+        "nodeId": "NODE_018",
+        "title": "Build backend",
+        "operatingModel": "private-pod",
+        "sourceIds": [
+          "ARC_03",
+          "NFR_01",
+          "NFR_06"
+        ],
+        "readiness": "review-required",
+        "kind": "private-pod",
+        "objective": "Implement the backend components and their interfaces.",
+        "requiredRoles": [
+          "Tech Lead",
+          "Backend Engineer",
+          "Frontend Engineer"
+        ],
+        "requiredSkills": [
+          "General engineering"
+        ],
+        "technicalLeadership": "A technical lead owns architecture decisions and coordination.",
+        "componentOwnership": "1 architecture component(s) in backend",
+        "deliveryResponsibilities": [
+          "backend components",
+          "Automated tests"
+        ],
+        "securityAndAccess": "Standard delivery access.",
+        "coordinationDependencies": [
+          "NODE_015",
+          "NODE_013",
+          "NODE_014"
+        ],
+        "expectedDuration": "7–12 person-days",
+        "definitionOfCompletion": [
+          "Components meet their stated purpose.",
+          "Automated tests pass."
+        ],
+        "readinessNote": "Resolve linked items before mobilizing the pod."
+      }
+    },
+    {
+      "id": "NODE_019",
+      "title": "Build data-storage",
+      "objective": "Implement the data-storage components and their interfaces.",
+      "workCategory": "data-engineering",
+      "scope": "3 architecture component(s) in data-storage",
+      "sourceIds": [
+        "ARC_04",
+        "ARC_18",
+        "ARC_24",
+        "NFR_01",
+        "NFR_06",
+        "SEC_02",
+        "BR_01",
+        "BR_03",
+        "FR_01",
+        "FR_02",
+        "FR_03",
+        "FR_04"
+      ],
+      "inputs": [
+        "Approved architecture",
+        "Interface contracts"
+      ],
+      "deliverables": [
+        "data-storage components",
+        "Automated tests"
+      ],
+      "acceptanceConditions": [
+        "Components meet their stated purpose.",
+        "Automated tests pass."
+      ],
+      "dependsOn": [
+        "NODE_013",
+        "NODE_014"
+      ],
+      "effort": {
+        "minimum": 9,
+        "maximum": 16,
+        "unit": "person-days"
+      },
+      "operatingModel": {
+        "primary": "private-pod",
+        "alternatives": [],
+        "confidence": "high",
+        "rationale": [
+          "The work needs continuous technical coordination across roles.",
+          "The components are strongly coupled and must be built together.",
+          "Regulated requirements need sustained delivery ownership."
+        ],
+        "sourceIds": [
+          "ARC_04",
+          "ARC_18",
+          "ARC_24",
+          "NFR_01",
+          "NFR_06",
+          "SEC_02",
+          "BR_01",
+          "BR_03"
+        ],
+        "scores": {
+          "flexible-talent": 0,
+          "challenge": 0,
+          "private-pod": 8
+        },
+        "overridden": false,
+        "overrideHistory": []
+      },
+      "provenance": "ai-recommended",
+      "readiness": "review-required",
+      "blocked": false,
+      "executionPackage": {
+        "nodeId": "NODE_019",
+        "title": "Build data-storage",
+        "operatingModel": "private-pod",
+        "sourceIds": [
+          "ARC_04",
+          "ARC_18",
+          "ARC_24",
+          "NFR_01",
+          "NFR_06",
+          "SEC_02",
+          "BR_01",
+          "BR_03",
+          "FR_01",
+          "FR_02",
+          "FR_03",
+          "FR_04"
+        ],
+        "readiness": "review-required",
+        "kind": "private-pod",
+        "objective": "Implement the data-storage components and their interfaces.",
+        "requiredRoles": [
+          "Data Engineer"
+        ],
+        "requiredSkills": [
+          "Pipelines",
+          "Data quality",
+          "Lineage"
+        ],
+        "technicalLeadership": "A technical lead owns architecture decisions and coordination.",
+        "componentOwnership": "3 architecture component(s) in data-storage",
+        "deliveryResponsibilities": [
+          "data-storage components",
+          "Automated tests"
+        ],
+        "securityAndAccess": "Controlled access to restricted systems/data; least-privilege enforced.",
+        "coordinationDependencies": [
+          "NODE_013",
+          "NODE_014"
+        ],
+        "expectedDuration": "9–16 person-days",
+        "definitionOfCompletion": [
+          "Components meet their stated purpose.",
+          "Automated tests pass."
+        ],
+        "readinessNote": "Resolve linked items before mobilizing the pod."
+      }
+    },
+    {
+      "id": "NODE_020",
+      "title": "Independent testing & quality",
+      "objective": "Verify the solution against acceptance criteria with independent testing.",
+      "workCategory": "testing",
+      "scope": "End-to-end and non-functional testing",
+      "sourceIds": [
+        "NFR_01",
+        "NFR_02",
+        "NFR_03",
+        "NFR_04",
+        "NFR_05",
+        "NFR_06"
+      ],
+      "inputs": [
+        "Built components",
+        "Acceptance criteria"
+      ],
+      "deliverables": [
+        "Test suites",
+        "Defect report",
+        "Sign-off"
+      ],
+      "acceptanceConditions": [
+        "Acceptance criteria verified.",
+        "Critical defects resolved."
+      ],
+      "dependsOn": [
+        "NODE_016",
+        "NODE_017",
+        "NODE_018",
+        "NODE_019",
+        "NODE_007",
+        "NODE_008",
+        "NODE_009",
+        "NODE_010",
+        "NODE_011",
+        "NODE_012",
+        "NODE_013",
+        "NODE_014",
+        "NODE_002",
+        "NODE_003",
+        "NODE_004",
+        "NODE_005",
+        "NODE_006"
+      ],
+      "effort": {
+        "minimum": 4,
+        "maximum": 8,
+        "unit": "person-days"
+      },
+      "operatingModel": {
+        "primary": "flexible-talent",
+        "alternatives": [
+          "challenge"
+        ],
+        "confidence": "medium",
+        "rationale": [
+          "The work is a focused task for one specialist with known skills.",
+          "One clearly-defined role is required.",
+          "Small, self-contained effort that can be directly managed."
+        ],
+        "sourceIds": [
+          "NFR_01",
+          "NFR_02",
+          "NFR_03",
+          "NFR_04",
+          "NFR_05",
+          "NFR_06"
+        ],
+        "scores": {
+          "flexible-talent": 6,
+          "challenge": 4,
+          "private-pod": 2
+        },
+        "overridden": false,
+        "overrideHistory": []
+      },
+      "provenance": "ai-recommended",
+      "readiness": "ready",
+      "blocked": false,
+      "executionPackage": {
+        "nodeId": "NODE_020",
+        "title": "Independent testing & quality",
+        "operatingModel": "flexible-talent",
+        "sourceIds": [
+          "NFR_01",
+          "NFR_02",
+          "NFR_03",
+          "NFR_04",
+          "NFR_05",
+          "NFR_06"
+        ],
+        "readiness": "ready",
+        "kind": "flexible-talent",
+        "requiredRoles": [
+          "QA Engineer"
+        ],
+        "requiredSkills": [
+          "Test automation",
+          "NFR testing"
+        ],
+        "seniority": "Mid–senior",
+        "durationOrCapacity": "4–8 person-days",
+        "responsibilities": [
+          "Test suites",
+          "Defect report",
+          "Sign-off"
+        ],
+        "startDependencies": [
+          "NODE_016",
+          "NODE_017",
+          "NODE_018",
+          "NODE_019",
+          "NODE_007",
+          "NODE_008",
+          "NODE_009",
+          "NODE_010",
+          "NODE_011",
+          "NODE_012",
+          "NODE_013",
+          "NODE_014",
+          "NODE_002",
+          "NODE_003",
+          "NODE_004",
+          "NODE_005",
+          "NODE_006"
+        ],
+        "requiredAccessAndEnvironment": [
+          "Built components",
+          "Acceptance criteria"
+        ],
+        "readinessNote": "Ready to assign."
+      }
+    },
+    {
+      "id": "NODE_021",
+      "title": "Deployment & cutover",
+      "objective": "Deploy to target environments and execute cutover.",
+      "workCategory": "deployment",
+      "scope": "Environment setup, release, cutover",
+      "sourceIds": [
+        "CON_01",
+        "CON_02",
+        "CON_03",
+        "CON_04"
+      ],
+      "inputs": [
+        "Release artifacts",
+        "Environment access"
+      ],
+      "deliverables": [
+        "Deployed solution",
+        "Runbook"
+      ],
+      "acceptanceConditions": [
+        "Solution runs in the target environment.",
+        "Rollback is tested."
+      ],
+      "dependsOn": [
+        "NODE_020"
+      ],
+      "effort": {
+        "minimum": 3,
+        "maximum": 6,
+        "unit": "person-days"
+      },
+      "operatingModel": {
+        "primary": "private-pod",
+        "alternatives": [],
+        "confidence": "high",
+        "rationale": [
+          "The work needs continuous technical coordination across roles.",
+          "Regulated requirements need sustained delivery ownership.",
+          "Multiple technical roles must work together."
+        ],
+        "sourceIds": [
+          "CON_01",
+          "CON_02",
+          "CON_03",
+          "CON_04"
+        ],
+        "scores": {
+          "flexible-talent": 0,
+          "challenge": 2,
+          "private-pod": 7
+        },
+        "overridden": false,
+        "overrideHistory": []
+      },
+      "provenance": "ai-recommended",
+      "readiness": "review-required",
+      "blocked": false,
+      "executionPackage": {
+        "nodeId": "NODE_021",
+        "title": "Deployment & cutover",
+        "operatingModel": "private-pod",
+        "sourceIds": [
+          "CON_01",
+          "CON_02",
+          "CON_03",
+          "CON_04"
+        ],
+        "readiness": "review-required",
+        "kind": "private-pod",
+        "objective": "Deploy to target environments and execute cutover.",
+        "requiredRoles": [
+          "Release Engineer",
+          "Cloud/DevOps Engineer"
+        ],
+        "requiredSkills": [
+          "General engineering"
+        ],
+        "technicalLeadership": "A technical lead owns architecture decisions and coordination.",
+        "componentOwnership": "Environment setup, release, cutover",
+        "deliveryResponsibilities": [
+          "Deployed solution",
+          "Runbook"
+        ],
+        "securityAndAccess": "Standard delivery access.",
+        "coordinationDependencies": [
+          "NODE_020"
+        ],
+        "expectedDuration": "3–6 person-days",
+        "definitionOfCompletion": [
+          "Solution runs in the target environment.",
+          "Rollback is tested."
+        ],
+        "readinessNote": "Resolve linked items before mobilizing the pod."
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "EDGE_001",
+      "source": "NODE_001",
+      "target": "NODE_017",
+      "type": "blocking-discovery",
+      "rationale": "Build api needs \"Resolve: Epic sandbox write capability unconfirmed\" resolved first.",
+      "blocking": true
+    },
+    {
+      "id": "EDGE_002",
+      "source": "NODE_015",
+      "target": "NODE_016",
+      "type": "design-handoff",
+      "rationale": "Implementation needs the approved experience.",
+      "blocking": true
+    },
+    {
+      "id": "EDGE_003",
+      "source": "NODE_015",
+      "target": "NODE_017",
+      "type": "design-handoff",
+      "rationale": "Implementation needs the approved experience.",
+      "blocking": true
+    },
+    {
+      "id": "EDGE_004",
+      "source": "NODE_015",
+      "target": "NODE_018",
+      "type": "design-handoff",
+      "rationale": "Implementation needs the approved experience.",
+      "blocking": true
+    },
+    {
+      "id": "EDGE_005",
+      "source": "NODE_013",
+      "target": "NODE_016",
+      "type": "data-foundation",
+      "rationale": "Implementation depends on the data platform.",
+      "blocking": true
+    },
+    {
+      "id": "EDGE_006",
+      "source": "NODE_013",
+      "target": "NODE_017",
+      "type": "data-foundation",
+      "rationale": "Implementation depends on the data platform.",
+      "blocking": true
+    },
+    {
+      "id": "EDGE_007",
+      "source": "NODE_013",
+      "target": "NODE_018",
+      "type": "data-foundation",
+      "rationale": "Implementation depends on the data platform.",
+      "blocking": true
+    },
+    {
+      "id": "EDGE_008",
+      "source": "NODE_013",
+      "target": "NODE_019",
+      "type": "data-foundation",
+      "rationale": "Implementation depends on the data platform.",
+      "blocking": true
+    },
+    {
+      "id": "EDGE_009",
+      "source": "NODE_014",
+      "target": "NODE_016",
+      "type": "security-foundation",
+      "rationale": "Implementation must apply security controls.",
+      "blocking": false
+    },
+    {
+      "id": "EDGE_010",
+      "source": "NODE_014",
+      "target": "NODE_017",
+      "type": "security-foundation",
+      "rationale": "Implementation must apply security controls.",
+      "blocking": false
+    },
+    {
+      "id": "EDGE_011",
+      "source": "NODE_014",
+      "target": "NODE_018",
+      "type": "security-foundation",
+      "rationale": "Implementation must apply security controls.",
+      "blocking": false
+    },
+    {
+      "id": "EDGE_012",
+      "source": "NODE_014",
+      "target": "NODE_019",
+      "type": "security-foundation",
+      "rationale": "Implementation must apply security controls.",
+      "blocking": false
+    },
+    {
+      "id": "EDGE_013",
+      "source": "NODE_016",
+      "target": "NODE_020",
+      "type": "verification",
+      "rationale": "Built work must be tested.",
+      "blocking": true
+    },
+    {
+      "id": "EDGE_014",
+      "source": "NODE_017",
+      "target": "NODE_020",
+      "type": "verification",
+      "rationale": "Built work must be tested.",
+      "blocking": true
+    },
+    {
+      "id": "EDGE_015",
+      "source": "NODE_018",
+      "target": "NODE_020",
+      "type": "verification",
+      "rationale": "Built work must be tested.",
+      "blocking": true
+    },
+    {
+      "id": "EDGE_016",
+      "source": "NODE_019",
+      "target": "NODE_020",
+      "type": "verification",
+      "rationale": "Built work must be tested.",
+      "blocking": true
+    },
+    {
+      "id": "EDGE_017",
+      "source": "NODE_007",
+      "target": "NODE_020",
+      "type": "verification",
+      "rationale": "Built work must be tested.",
+      "blocking": true
+    },
+    {
+      "id": "EDGE_018",
+      "source": "NODE_008",
+      "target": "NODE_020",
+      "type": "verification",
+      "rationale": "Built work must be tested.",
+      "blocking": true
+    },
+    {
+      "id": "EDGE_019",
+      "source": "NODE_009",
+      "target": "NODE_020",
+      "type": "verification",
+      "rationale": "Built work must be tested.",
+      "blocking": true
+    },
+    {
+      "id": "EDGE_020",
+      "source": "NODE_010",
+      "target": "NODE_020",
+      "type": "verification",
+      "rationale": "Built work must be tested.",
+      "blocking": true
+    },
+    {
+      "id": "EDGE_021",
+      "source": "NODE_011",
+      "target": "NODE_020",
+      "type": "verification",
+      "rationale": "Built work must be tested.",
+      "blocking": true
+    },
+    {
+      "id": "EDGE_022",
+      "source": "NODE_012",
+      "target": "NODE_020",
+      "type": "verification",
+      "rationale": "Built work must be tested.",
+      "blocking": true
+    },
+    {
+      "id": "EDGE_023",
+      "source": "NODE_013",
+      "target": "NODE_020",
+      "type": "verification",
+      "rationale": "Built work must be tested.",
+      "blocking": true
+    },
+    {
+      "id": "EDGE_024",
+      "source": "NODE_014",
+      "target": "NODE_020",
+      "type": "verification",
+      "rationale": "Built work must be tested.",
+      "blocking": true
+    },
+    {
+      "id": "EDGE_025",
+      "source": "NODE_020",
+      "target": "NODE_021",
+      "type": "release-gate",
+      "rationale": "Deployment follows successful testing.",
+      "blocking": true
+    },
+    {
+      "id": "EDGE_026",
+      "source": "NODE_002",
+      "target": "NODE_020",
+      "type": "open-item",
+      "rationale": "This open item must be resolved before sign-off.",
+      "blocking": false
+    },
+    {
+      "id": "EDGE_027",
+      "source": "NODE_003",
+      "target": "NODE_020",
+      "type": "open-item",
+      "rationale": "This open item must be resolved before sign-off.",
+      "blocking": false
+    },
+    {
+      "id": "EDGE_028",
+      "source": "NODE_004",
+      "target": "NODE_020",
+      "type": "open-item",
+      "rationale": "This open item must be resolved before sign-off.",
+      "blocking": true
+    },
+    {
+      "id": "EDGE_029",
+      "source": "NODE_005",
+      "target": "NODE_020",
+      "type": "open-item",
+      "rationale": "This open item must be resolved before sign-off.",
+      "blocking": false
+    },
+    {
+      "id": "EDGE_030",
+      "source": "NODE_006",
+      "target": "NODE_020",
+      "type": "open-item",
+      "rationale": "This open item must be resolved before sign-off.",
+      "blocking": false
+    }
+  ],
+  "notReadyForHandoff": [
+    "NODE_011",
+    "NODE_012",
+    "NODE_016",
+    "NODE_017",
+    "NODE_018",
+    "NODE_019",
+    "NODE_021"
+  ]
+}

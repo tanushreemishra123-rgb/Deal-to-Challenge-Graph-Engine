@@ -1,0 +1,114 @@
+{
+  "status": "review-required",
+  "checks": [
+    {
+      "id": "source-coverage",
+      "label": "Source coverage",
+      "status": "pass",
+      "detail": "Every node is grounded in imported source ids",
+      "refs": []
+    },
+    {
+      "id": "supported-refs",
+      "label": "Grounding references valid",
+      "status": "pass",
+      "detail": "All node references resolve to imported ids",
+      "refs": []
+    },
+    {
+      "id": "model-complete",
+      "label": "Operating-model completeness",
+      "status": "pass",
+      "detail": "Every node has exactly one valid operating model",
+      "refs": []
+    },
+    {
+      "id": "model-rationale",
+      "label": "Classification rationale",
+      "status": "pass",
+      "detail": "Every classification has an explainable rationale",
+      "refs": []
+    },
+    {
+      "id": "acceptance",
+      "label": "Acceptance conditions",
+      "status": "pass",
+      "detail": "Every node has acceptance conditions",
+      "refs": []
+    },
+    {
+      "id": "overlap",
+      "label": "No duplicate/overlapping scope",
+      "status": "warn",
+      "detail": "6 node(s) overlap in scope",
+      "refs": [
+        "NODE_013",
+        "NODE_017",
+        "NODE_018",
+        "NODE_019",
+        "NODE_020",
+        "NODE_021"
+      ]
+    },
+    {
+      "id": "acyclic",
+      "label": "Graph is acyclic",
+      "status": "pass",
+      "detail": "No cycles",
+      "refs": []
+    },
+    {
+      "id": "no-orphans",
+      "label": "No orphan nodes",
+      "status": "pass",
+      "detail": "No orphan nodes",
+      "refs": []
+    },
+    {
+      "id": "valid-edges",
+      "label": "Dependencies valid",
+      "status": "pass",
+      "detail": "All dependencies are valid",
+      "refs": []
+    },
+    {
+      "id": "model-fit",
+      "label": "Model-to-work fit",
+      "status": "pass",
+      "detail": "Operating models fit the work",
+      "refs": []
+    },
+    {
+      "id": "node-readiness",
+      "label": "Node readiness",
+      "status": "warn",
+      "detail": "6 node(s) are blocked or review-required",
+      "refs": [
+        "NODE_025",
+        "NODE_028",
+        "NODE_029",
+        "NODE_030",
+        "NODE_031",
+        "NODE_033"
+      ]
+    },
+    {
+      "id": "critical-path",
+      "label": "Critical path present",
+      "status": "pass",
+      "detail": "Critical path spans 4 node(s), 36 person-days",
+      "refs": [
+        "NODE_026",
+        "NODE_031",
+        "NODE_032",
+        "NODE_033"
+      ]
+    }
+  ],
+  "summary": {
+    "status": "review-required",
+    "pass": 10,
+    "warn": 2,
+    "fail": 0
+  }
+}

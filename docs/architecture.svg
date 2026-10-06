@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 860" font-family="'Inter',system-ui,sans-serif">
+  <defs>
+    <linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#a78bfa"/><stop offset="1" stop-color="#4cc4f0"/></linearGradient>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="7" refY="4.5" orient="auto"><path d="M0 0 L8 4.5 L0 9 z" fill="#7d8ab5"/></marker>
+    <style>
+      .lbl{fill:#e6edf7;font-size:13.5px;font-weight:650}
+      .sub{fill:#8b98ad;font-size:10.5px}
+      .tag{fill:#7d8ab5;font-size:11px;letter-spacing:.05em}
+      .mono{font-family:'JetBrains Mono',monospace;font-size:10px;fill:#aeb9e0}
+      .flow{fill:#8b98ad;font-family:'JetBrains Mono',monospace;font-size:10px}
+    </style>
+  </defs>
+  <rect width="980" height="860" fill="#0d1117"/>
+
+  <rect x="22" y="20" width="34" height="34" rx="9" fill="url(#lg)"/>
+  <text x="40" y="43" font-size="19" fill="#0a0e14" font-weight="800" text-anchor="middle">⟐</text>
+  <text x="68" y="36" fill="#e6edf7" font-size="18" font-weight="700">Deal-to-Challenge Graph Engine — architecture</text>
+  <text x="68" y="53" class="sub">Deterministic calculation + AI-assisted (mock) decomposition &amp; classification · fully offline</text>
+
+  <!-- INPUT -->
+  <text x="24" y="86" class="tag">INPUT</text>
+  <rect x="24" y="94" width="430" height="58" rx="11" fill="#151b24" stroke="#273040"/>
+  <text x="40" y="118" class="lbl">4 supplied packages + upload</text>
+  <text x="40" y="137" class="sub">claimsdesk · clinical · member-discovery · supply-chain (evaluators upload originals)</text>
+
+  <!-- IMPORT & VALIDATION -->
+  <line x1="239" y1="152" x2="239" y2="186" stroke="#7d8ab5" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="248" y="174" class="flow">JSON</text>
+  <text x="24" y="206" class="tag">IMPORT &amp; VALIDATION — src/import</text>
+  <rect x="24" y="214" width="430" height="70" rx="11" fill="#151b24" stroke="#273040"/>
+  <text x="40" y="238" class="lbl">Input validation</text>
+  <text x="40" y="257" class="sub">structure · duplicate &amp; dangling ids · blockers · stale/unreviewed</text>
+  <text x="40" y="273" class="sub">outputs · coverage · missing estimate inputs</text>
+
+  <!-- NORMALIZER -->
+  <line x1="239" y1="284" x2="239" y2="318" stroke="#7d8ab5" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="24" y="338" class="tag">NORMALIZATION — src/import/normalize.js</text>
+  <rect x="24" y="346" width="430" height="70" rx="11" fill="#151b24" stroke="#273040"/>
+  <text x="40" y="370" class="lbl">Package normalizer → Canonical model</text>
+  <text x="40" y="389" class="sub">scope.items[] + outputs.* → requirements / architecture / strategy / delivery</text>
+  <text x="40" y="405" class="mono">+ sourceIndex (every original id preserved)  · raw package kept verbatim</text>
+
+  <!-- AI ORCHESTRATION (right column) -->
+  <text x="492" y="206" class="tag">AI ORCHESTRATION — src/classify (mock provider)</text>
+  <rect x="492" y="214" width="464" height="202" rx="11" fill="#151b24" stroke="#a78bfa" stroke-opacity="0.5"/>
+  <text x="508" y="238" class="lbl" fill="#c7b6ff">Rules-based "mock AI" — grounded &amp; provenance-tagged</text>
+
+  <rect x="508" y="252" width="212" height="70" rx="9" fill="#12152b"/>
+  <text x="522" y="275" class="lbl" font-size="12.5">Delivery decomposition</text>
+  <text x="522" y="293" class="sub">gaps/questions → discovery</text>
+  <text x="522" y="308" class="sub">components/integrations/AI → nodes</text>
+
+  <rect x="730" y="252" width="212" height="70" rx="9" fill="#12152b"/>
+  <text x="744" y="275" class="lbl" font-size="12.5">Operating-model classifier</text>
+  <text x="744" y="293" class="sub">flex-talent / challenge / private-pod</text>
+  <text x="744" y="308" class="sub">+ rationale · confidence · alternatives</text>
+
+  <rect x="508" y="334" width="434" height="30" rx="8" fill="#10243a" stroke="#58a6ff" stroke-opacity="0.35"/>
+  <text x="522" y="354" class="sub" fill="#9ecbff">Model-specific execution packages (Flexible Talent / Challenge / Private Pod)</text>
+
+  <rect x="508" y="372" width="434" height="30" rx="8" fill="#1b2330"/>
+  <text x="522" y="392" class="sub">provenance: imported · ai-inferred · ai-recommended · user-approved · deterministic</text>
+
+  <line x1="454" y1="381" x2="500" y2="381" stroke="#7d8ab5" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="458" y="375" class="flow">canonical</text>
+
+  <!-- DAG ENGINE -->
+  <line x1="239" y1="416" x2="239" y2="452" stroke="#7d8ab5" stroke-width="1.6" marker-end="url(#a)"/>
+  <line x1="724" y1="416" x2="420" y2="452" stroke="#7d8ab5" stroke-width="1.4" marker-end="url(#a)"/>
+  <text x="560" y="438" class="flow">nodes + edges</text>
+  <text x="24" y="472" class="tag">DAG ENGINE (deterministic) — src/engine/dag.js</text>
+  <rect x="24" y="480" width="610" height="72" rx="11" fill="#151b24" stroke="#4cc4f0" stroke-opacity="0.45"/>
+  <text x="40" y="504" class="lbl" fill="#8fd9f5">Dependency-aware DAG analysis</text>
+  <text x="40" y="523" class="sub">cycles · orphans · self/duplicate edges · entry/terminal · execution waves</text>
+  <text x="40" y="539" class="sub">critical path · effort aggregation · operating-model distribution by wave</text>
+
+  <!-- CHANGE IMPACT (right) -->
+  <text x="656" y="472" class="tag">CHANGE IMPACT — changeImpact.js</text>
+  <rect x="656" y="480" width="300" height="72" rx="11" fill="#151b24" stroke="#273040"/>
+  <text x="672" y="504" class="lbl">Change-impact engine</text>
+  <text x="672" y="523" class="sub">affected vs. preserved nodes</text>
+  <text x="672" y="539" class="sub">model/wave/critical-path deltas · regen list</text>
+  <line x1="634" y1="516" x2="652" y2="516" stroke="#7d8ab5" stroke-width="1.4" marker-end="url(#a)"/>
+
+  <!-- QUALITY GATE -->
+  <line x1="239" y1="552" x2="239" y2="588" stroke="#7d8ab5" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="24" y="608" class="tag">QUALITY GATE (deterministic) — src/engine/qualityGate.js</text>
+  <rect x="24" y="616" width="610" height="66" rx="11" fill="#151b24" stroke="#273040"/>
+  <text x="40" y="640" class="lbl">Graph quality validation → ready / review-required / blocked</text>
+  <text x="40" y="659" class="sub">coverage · unsupported nodes · model completeness &amp; rationale · model-fit · cycles/orphans</text>
+  <text x="40" y="675" class="sub">invalid deps · duplicate scope · acceptance conditions · critical-path completeness · readiness</text>
+
+  <!-- EXPORT -->
+  <line x1="239" y1="682" x2="239" y2="718" stroke="#7d8ab5" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="24" y="738" class="tag">EXPORT LAYER — src/engine/exporters.js</text>
+  <rect x="24" y="746" width="610" height="66" rx="11" fill="#151b24" stroke="#273040"/>
+  <text x="40" y="770" class="lbl">Source-traceable export</text>
+  <text x="40" y="789" class="sub">machine-readable graph JSON + human-readable execution plan + model-specific packages</text>
+  <text x="40" y="805" class="sub">preserves node ids · source ids · dependencies · models + rationale · waves · critical path · readiness</text>
+
+  <!-- UI note -->
+  <rect x="656" y="616" width="300" height="196" rx="11" fill="#151b24" stroke="#273040"/>
+  <text x="672" y="640" class="tag">UI — src/App.jsx (6 workspaces)</text>
+  <text x="672" y="664" class="sub">1 · Import &amp; maturity</text>
+  <text x="672" y="682" class="sub">2 · Decomposition &amp; overrides</text>
+  <text x="672" y="700" class="sub">3 · Graph (DAG, waves, critical path)</text>
+  <text x="672" y="718" class="sub">4 · Execution plan</text>
+  <text x="672" y="736" class="sub">5 · Model-specific packages</text>
+  <text x="672" y="754" class="sub">6 · Validation &amp; export</text>
+  <text x="672" y="784" class="mono" fill="#8fd9f5">Mock AI mode · offline · in-memory</text>
+  <text x="672" y="800" class="sub">no database · no paid AI</text>
+</svg>

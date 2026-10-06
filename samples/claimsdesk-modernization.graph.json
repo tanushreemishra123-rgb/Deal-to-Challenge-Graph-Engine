@@ -1,0 +1,2732 @@
+{
+  "schemaVersion": "1.0",
+  "exportedAt": "2026-10-05T09:12:57.699Z",
+  "deal": {
+    "id": "74481f79-8922-4630-9f95-bb9be76a47d1",
+    "title": "ClaimsDesk Modernization",
+    "maturity": "review-required"
+  },
+  "graphId": "GRAPH_74481f79",
+  "operatingModelSummary": {
+    "flexibleTalent": 15,
+    "challenge": 1,
+    "privatePod": 8
+  },
+  "execution": {
+    "waves": [
+      [
+        "NODE_001",
+        "NODE_002",
+        "NODE_003",
+        "NODE_004",
+        "NODE_005",
+        "NODE_006",
+        "NODE_007",
+        "NODE_008",
+        "NODE_009",
+        "NODE_010",
+        "NODE_011",
+        "NODE_012",
+        "NODE_013",
+        "NODE_014",
+        "NODE_015",
+        "NODE_016",
+        "NODE_017",
+        "NODE_018"
+      ],
+      [
+        "NODE_022",
+        "NODE_019",
+        "NODE_020",
+        "NODE_021"
+      ],
+      [
+        "NODE_023"
+      ],
+      [
+        "NODE_024"
+      ]
+    ],
+    "waveSummary": [
+      {
+        "wave": 1,
+        "nodes": 18,
+        "flexible-talent": 14,
+        "challenge": 1,
+        "private-pod": 3,
+        "effortMin": 61,
+        "effortMax": 128
+      },
+      {
+        "wave": 2,
+        "nodes": 4,
+        "flexible-talent": 0,
+        "challenge": 0,
+        "private-pod": 4,
+        "effortMin": 35,
+        "effortMax": 62
+      },
+      {
+        "wave": 3,
+        "nodes": 1,
+        "flexible-talent": 1,
+        "challenge": 0,
+        "private-pod": 0,
+        "effortMin": 4,
+        "effortMax": 8
+      },
+      {
+        "wave": 4,
+        "nodes": 1,
+        "flexible-talent": 0,
+        "challenge": 0,
+        "private-pod": 1,
+        "effortMin": 3,
+        "effortMax": 6
+      }
+    ],
+    "criticalPath": [
+      "NODE_016",
+      "NODE_022",
+      "NODE_023",
+      "NODE_024"
+    ],
+    "criticalDuration": 41,
+    "totalEffort": {
+      "minimum": 103,
+      "maximum": 204,
+      "unit": "person-days"
+    },
+    "parallelism": 18
+  },
+  "qualityGate": {
+    "status": "review-required",
+    "summary": {
+      "status": "review-required",
+      "pass": 10,
+      "warn": 2,
+      "fail": 0
+    },
+    "checks": [
+      {
+        "id": "source-coverage",
+        "label": "Source coverage",
+        "status": "pass",
+        "detail": "Every node is grounded in imported source ids",
+        "refs": []
+      },
+      {
+        "id": "supported-refs",
+        "label": "Grounding references valid",
+        "status": "pass",
+        "detail": "All node references resolve to imported ids",
+        "refs": []
+      },
+      {
+        "id": "model-complete",
+        "label": "Operating-model completeness",
+        "status": "pass",
+        "detail": "Every node has exactly one valid operating model",
+        "refs": []
+      },
+      {
+        "id": "model-rationale",
+        "label": "Classification rationale",
+        "status": "pass",
+        "detail": "Every classification has an explainable rationale",
+        "refs": []
+      },
+      {
+        "id": "acceptance",
+        "label": "Acceptance conditions",
+        "status": "pass",
+        "detail": "Every node has acceptance conditions",
+        "refs": []
+      },
+      {
+        "id": "overlap",
+        "label": "No duplicate/overlapping scope",
+        "status": "warn",
+        "detail": "3 node(s) overlap in scope",
+        "refs": [
+          "NODE_005",
+          "NODE_006",
+          "NODE_007"
+        ]
+      },
+      {
+        "id": "acyclic",
+        "label": "Graph is acyclic",
+        "status": "pass",
+        "detail": "No cycles",
+        "refs": []
+      },
+      {
+        "id": "no-orphans",
+        "label": "No orphan nodes",
+        "status": "pass",
+        "detail": "No orphan nodes",
+        "refs": []
+      },
+      {
+        "id": "valid-edges",
+        "label": "Dependencies valid",
+        "status": "pass",
+        "detail": "All dependencies are valid",
+        "refs": []
+      },
+      {
+        "id": "model-fit",
+        "label": "Model-to-work fit",
+        "status": "pass",
+        "detail": "Operating models fit the work",
+        "refs": []
+      },
+      {
+        "id": "node-readiness",
+        "label": "Node readiness",
+        "status": "warn",
+        "detail": "6 node(s) are blocked or review-required",
+        "refs": [
+          "NODE_015",
+          "NODE_019",
+          "NODE_020",
+          "NODE_021",
+          "NODE_022",
+          "NODE_024"
+        ]
+      },
+      {
+        "id": "critical-path",
+        "label": "Critical path present",
+        "status": "pass",
+        "detail": "Critical path spans 4 node(s), 41 person-days",
+        "refs": [
+          "NODE_016",
+          "NODE_022",
+          "NODE_023",
+          "NODE_024"
+        ]
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "id": "NODE_001",
+      "title": "Resolve: SAP S/4HANA integration pattern unconfirmed",
+      "objective": "Clarify and confirm \"SAP S/4HANA integration pattern unconfirmed\" before dependent implementation proceeds.",
+      "workCategory": "discovery",
+      "scope": "It is not yet known whether SAP S/4HANA exposes a REST API for journal posting or only IDoc/BAPI interfaces, which changes the integration design.",
+      "sourceIds": [
+        "GAP_01",
+        "INT_02",
+        "Q_01"
+      ],
+      "inputs": [
+        "Access to the relevant stakeholders or source systems"
+      ],
+      "deliverables": [
+        "A documented decision or confirmed answer",
+        "Updated assumptions/requirements"
+      ],
+      "acceptanceConditions": [
+        "The open item is resolved and recorded as a reviewed decision."
+      ],
+      "dependsOn": [],
+      "effort": {
+        "minimum": 2,
+        "maximum": 5,
+        "unit": "person-days"
+      },
+      "operatingModel": {
+        "primary": "flexible-talent",
+        "alternatives": [],
+        "confidence": "high",
+        "rationale": [
+          "The work is a focused task for one specialist with known skills.",
+          "A focused technical assessment fits a single specialist.",
+          "One clearly-defined role is required.",
+          "Small, self-contained effort that can be directly managed."
+        ],
+        "sourceIds": [
+          "GAP_01",
+          "INT_02",
+          "Q_01"
+        ],
+        "scores": {
+          "flexible-talent": 8,
+          "challenge": 0,
+          "private-pod": 2
+        },
+        "overridden": false,
+        "overrideHistory": []
+      },
+      "provenance": "ai-recommended",
+      "readiness": "ready",
+      "blocked": false,
+      "executionPackage": {
+        "nodeId": "NODE_001",
+        "title": "Resolve: SAP S/4HANA integration pattern unconfirmed",
+        "operatingModel": "flexible-talent",
+        "sourceIds": [
+          "GAP_01",
+          "INT_02",
+          "Q_01"
+        ],
+        "readiness": "ready",
+        "kind": "flexible-talent",
+        "requiredRoles": [
+          "Specialist / Analyst"
+        ],
+        "requiredSkills": [
+          "General engineering"
+        ],
+        "seniority": "Senior specialist",
+        "durationOrCapacity": "2–5 person-days",
+        "responsibilities": [
+          "A documented decision or confirmed answer",
+          "Updated assumptions/requirements"
+        ],
+        "startDependencies": [],
+        "requiredAccessAndEnvironment": [
+          "Access to the relevant stakeholders or source systems"
+        ],
+        "readinessNote": "Ready to assign."
+      }
+    },
+    {
+      "id": "NODE_002",
+      "title": "Resolve: Policyholder status tracker phase undecided",
+      "objective": "Clarify and confirm \"Policyholder status tracker phase undecided\" before dependent implementation proceeds.",
+      "workCategory": "discovery",
+      "scope": "Whether the policyholder-facing status tracker ships in the initial release or a fast-follow phase has not been decided.",
+      "sourceIds": [
+        "GAP_02",
+        "FR_05",
+        "Q_02"
+      ],
+      "inputs": [
+        "Access to the relevant stakeholders or source systems"
+      ],
+      "deliverables": [
+        "A documented decision or confirmed answer",
+        "Updated assumptions/requirements"
+      ],
+      "acceptanceConditions": [
+        "The open item is resolved and recorded as a reviewed decision."
+      ],
+      "dependsOn": [],
+      "effort": {
+        "minimum": 1,
+        "maximum": 3,
+        "unit": "person-days"
+      },
+      "operatingModel": {
+        "primary": "flexible-talent",
+        "alternatives": [],
+        "confidence": "high",
+        "rationale": [
+          "The work is a focused task for one specialist with known skills.",
+          "A focused technical assessment fits a single specialist.",
+          "One clearly-defined role is required.",
+          "Small, self-contained effort that can be directly managed."
+        ],
+        "sourceIds": [
+          "GAP_02",
+          "FR_05",
+          "Q_02"
+        ],
+        "scores": {
+          "flexible-talent": 8,
+          "challenge": 0,
+          "private-pod": 2
+        },
+        "overridden": false,
+        "overrideHistory": []
+      },
+      "provenance": "ai-recommended",
+      "readiness": "ready",
+      "blocked": false,
+      "executionPackage": {
+        "nodeId": "NODE_002",
+        "title": "Resolve: Policyholder status tracker phase undecided",
+        "operatingModel": "flexible-talent",
+        "sourceIds": [
+          "GAP_02",
+          "FR_05",
+          "Q_02"
+        ],
+        "readiness": "ready",
+        "kind": "flexible-talent",
+        "requiredRoles": [
+          "Specialist / Analyst"
+        ],
+        "requiredSkills": [
+          "General engineering"
+        ],
+        "seniority": "Senior specialist",
+        "durationOrCapacity": "1–3 person-days",
+        "responsibilities": [
+          "A documented decision or confirmed answer",
+          "Updated assumptions/requirements"
+        ],
+        "startDependencies": [],
+        "requiredAccessAndEnvironment": [
+          "Access to the relevant stakeholders or source systems"
+        ],
+        "readinessNote": "Ready to assign."
+      }
+    },
+    {
+      "id": "NODE_003",
+      "title": "Resolve: Specific agent accessibility requirements unspecified",
+      "objective": "Clarify and confirm \"Specific agent accessibility requirements unspecified\" before dependent implementation proceeds.",
+      "workCategory": "discovery",
+      "scope": "The RFP references accessibility requirements among agent-partner staff without naming the specific standard beyond WCAG 2.1 AA or which agents are affected.",
+      "sourceIds": [
+        "GAP_03"
+      ],
+      "inputs": [
+        "Access to the relevant stakeholders or source systems"
+      ],
+      "deliverables": [
+        "A documented decision or confirmed answer",
+        "Updated assumptions/requirements"
+      ],
+      "acceptanceConditions": [
+        "The open item is resolved and recorded as a reviewed decision."
+      ],
+      "dependsOn": [],
+      "effort": {
+        "minimum": 1,
+        "maximum": 3,
+        "unit": "person-days"
+      },
+      "operatingModel": {
+        "primary": "flexible-talent",
+        "alternatives": [],
+        "confidence": "high",
+        "rationale": [
+          "The work is a focused task for one specialist with known skills.",
+          "A focused technical assessment fits a single specialist.",
+          "One clearly-defined role is required.",
+          "Small, self-contained effort that can be directly managed."
+        ],
+        "sourceIds": [
+          "GAP_03"
+        ],
+        "scores": {
+          "flexible-talent": 8,
+          "challenge": 0,
+          "private-pod": 2
+        },
+        "overridden": false,
+        "overrideHistory": []
+      },
+      "provenance": "ai-recommended",
+      "readiness": "ready",
+      "blocked": false,
+      "executionPackage": {
+        "nodeId": "NODE_003",
+        "title": "Resolve: Specific agent accessibility requirements unspecified",
+        "operatingModel": "flexible-talent",
+        "sourceIds": [
+          "GAP_03"
+        ],
+        "readiness": "ready",
+        "kind": "flexible-talent",
+        "requiredRoles": [
+          "Specialist / Analyst"
+        ],
+        "requiredSkills": [
+          "General engineering"
+        ],
+        "seniority": "Senior specialist",
+        "durationOrCapacity": "1–3 person-days",
+        "responsibilities": [
+          "A documented decision or confirmed answer",
+          "Updated assumptions/requirements"
+        ],
+        "startDependencies": [],
+        "requiredAccessAndEnvironment": [
+          "Access to the relevant stakeholders or source systems"
+        ],
+        "readinessNote": "Ready to assign."
+      }
+    },
+    {
+      "id": "NODE_004",
+      "title": "Resolve: Hyland OnBase future-consolidation scope unclear",
+      "objective": "Clarify and confirm \"Hyland OnBase future-consolidation scope unclear\" before dependent implementation proceeds.",
+      "workCategory": "discovery",
+      "scope": "Whether the new portal should eventually replace Hyland OnBase is an open question the Enterprise Architect raised but explicitly deferred.",
+      "sourceIds": [
+        "GAP_04",
+        "DEP_01",
+        "Q_03"
+      ],
+      "inputs": [
+        "Access to the relevant stakeholders or source systems"
+      ],
+      "deliverables": [
+        "A documented decision or confirmed answer",
+        "Updated assumptions/requirements"
+      ],
+      "acceptanceConditions": [
+        "The open item is resolved and recorded as a reviewed decision."
+      ],
+      "dependsOn": [],
+      "effort": {
+        "minimum": 1,
+        "maximum": 3,
+        "unit": "person-days"
+      },
+      "operatingModel": {
+        "primary": "flexible-talent",
+        "alternatives": [],
+        "confidence": "high",
+        "rationale": [
+          "The work is a focused task for one specialist with known skills.",
+          "A focused technical assessment fits a single specialist.",
+          "One clearly-defined role is required.",
+          "Small, self-contained effort that can be directly managed."
+        ],
+        "sourceIds": [
+          "GAP_04",
+          "DEP_01",
+          "Q_03"
+        ],
+        "scores": {
+          "flexible-talent": 8,
+          "challenge": 0,
+          "private-pod": 2
+        },
+        "overridden": false,
+        "overrideHistory": []
+      },
+      "provenance": "ai-recommended",
+      "readiness": "ready",
+      "blocked": false,
+      "executionPackage": {
+        "nodeId": "NODE_004",
+        "title": "Resolve: Hyland OnBase future-consolidation scope unclear",
+        "operatingModel": "flexible-talent",
+        "sourceIds": [
+          "GAP_04",
+          "DEP_01",
+          "Q_03"
+        ],
+        "readiness": "ready",
+        "kind": "flexible-talent",
+        "requiredRoles": [
+          "Specialist / Analyst"
+        ],
+        "requiredSkills": [
+          "General engineering"
+        ],
+        "seniority": "Senior specialist",
+        "durationOrCapacity": "1–3 person-days",
+        "responsibilities": [
+          "A documented decision or confirmed answer",
+          "Updated assumptions/requirements"
+        ],
+        "startDependencies": [],
+        "requiredAccessAndEnvironment": [
+          "Access to the relevant stakeholders or source systems"
+        ],
+        "readinessNote": "Ready to assign."
+      }
+    },
+    {
+      "id": "NODE_005",
+      "title": "Resolve: Does SAP S/4HANA expose a REST API for journal posting?",
+      "objective": "Clarify and confirm \"Does SAP S/4HANA expose a REST API for journal posting?\" before dependent implementation proceeds.",
+      "workCategory": "discovery",
+      "scope": "Confirm whether SAP S/4HANA exposes a REST API for journal posting, or only IDoc/BAPI interfaces, before finalising the integration design.",
+      "sourceIds": [
+        "Q_01",
+        "GAP_01",
+        "INT_02"
+      ],
+      "inputs": [
+        "Access to the relevant stakeholders or source systems"
+      ],
+      "deliverables": [
+        "A documented decision or confirmed answer",
+        "Updated assumptions/requirements"
+      ],
+      "acceptanceConditions": [
+        "The open item is resolved and recorded as a reviewed decision."
+      ],
+      "dependsOn": [],
+      "effort": {
+        "minimum": 2,
+        "maximum": 5,
+        "unit": "person-days"
+      },
+      "operatingModel": {
+        "primary": "flexible-talent",
+        "alternatives": [],
+        "confidence": "high",
+        "rationale": [
+          "The work is a focused task for one specialist with known skills.",
+          "A focused technical assessment fits a single specialist.",
+          "One clearly-defined role is required.",
+          "Small, self-contained effort that can be directly managed."
+        ],
+        "sourceIds": [
+          "Q_01",
+          "GAP_01",
+          "INT_02"
+        ],
+        "scores": {
+          "flexible-talent": 8,
+          "challenge": 0,
+          "private-pod": 2
+        },
+        "overridden": false,
+        "overrideHistory": []
+      },
+      "provenance": "ai-recommended",
+      "readiness": "ready",
+      "blocked": false,
+      "executionPackage": {
+        "nodeId": "NODE_005",
+        "title": "Resolve: Does SAP S/4HANA expose a REST API for journal posting?",
+        "operatingModel": "flexible-talent",
+        "sourceIds": [
+          "Q_01",
+          "GAP_01",
+          "INT_02"
+        ],
+        "readiness": "ready",
+        "kind": "flexible-talent",
+        "requiredRoles": [
+          "Specialist / Analyst"
+        ],
+        "requiredSkills": [
+          "General engineering"
+        ],
+        "seniority": "Senior specialist",
+        "durationOrCapacity": "2–5 person-days",
+        "responsibilities": [
+          "A documented decision or confirmed answer",
+          "Updated assumptions/requirements"
+        ],
+        "startDependencies": [],
+        "requiredAccessAndEnvironment": [
+          "Access to the relevant stakeholders or source systems"
+        ],
+        "readinessNote": "Ready to assign."
+      }
+    },
+    {
+      "id": "NODE_006",
+      "title": "Resolve: Will the policyholder status tracker ship in the initial release?",
+      "objective": "Clarify and confirm \"Will the policyholder status tracker ship in the initial release?\" before dependent implementation proceeds.",
+      "workCategory": "discovery",
+      "scope": "Confirm whether the policyholder-facing status tracker ships in the initial release or a fast-follow phase.",
+      "sourceIds": [
+        "Q_02",
+        "GAP_02",
+        "FR_05"
+      ],
+      "inputs": [
+        "Access to the relevant stakeholders or source systems"
+      ],
+      "deliverables": [
+        "A documented decision or confirmed answer",
+        "Updated assumptions/requirements"
+      ],
+      "acceptanceConditions": [
+        "The open item is resolved and recorded as a reviewed decision."
+      ],
+      "dependsOn": [],
+      "effort": {
+        "minimum": 1,
+        "maximum": 3,
+        "unit": "person-days"
+      },
+      "operatingModel": {
+        "primary": "flexible-talent",
+        "alternatives": [],
+        "confidence": "high",
+        "rationale": [
+          "The work is a focused task for one specialist with known skills.",
+          "A focused technical assessment fits a single specialist.",
+          "One clearly-defined role is required.",
+          "Small, self-contained effort that can be directly managed."
+        ],
+        "sourceIds": [
+          "Q_02",
+          "GAP_02",
+          "FR_05"
+        ],
+        "scores": {
+          "flexible-talent": 8,
+          "challenge": 0,
+          "private-pod": 2
+        },
+        "overridden": false,
+        "overrideHistory": []
+      },
+      "provenance": "ai-recommended",
+      "readiness": "ready",
+      "blocked": false,
+      "executionPackage": {
+        "nodeId": "NODE_006",
+        "title": "Resolve: Will the policyholder status tracker ship in the initial release?",
+        "operatingModel": "flexible-talent",
+        "sourceIds": [
+          "Q_02",
+          "GAP_02",
+          "FR_05"
+        ],
+        "readiness": "ready",
+        "kind": "flexible-talent",
+        "requiredRoles": [
+          "Specialist / Analyst"
+        ],
+        "requiredSkills": [
+          "General engineering"
+        ],
+        "seniority": "Senior specialist",
+        "durationOrCapacity": "1–3 person-days",
+        "responsibilities": [
+          "A documented decision or confirmed answer",
+          "Updated assumptions/requirements"
+        ],
+        "startDependencies": [],
+        "requiredAccessAndEnvironment": [
+          "Access to the relevant stakeholders or source systems"
+        ],
+        "readinessNote": "Ready to assign."
+      }
+    },
+    {
+      "id": "NODE_007",
+      "title": "Resolve: Should the portal eventually replace Hyland OnBase?",
+      "objective": "Clarify and confirm \"Should the portal eventually replace Hyland OnBase?\" before dependent implementation proceeds.",
+      "workCategory": "discovery",
+      "scope": "Confirm whether the new portal is expected to eventually replace Hyland OnBase and, if so, in which phase.",
+      "sourceIds": [
+        "Q_03",
+        "DEP_01",
+        "GAP_04"
+      ],
+      "inputs": [
+        "Access to the relevant stakeholders or source systems"
+      ],
+      "deliverables": [
+        "A documented decision or confirmed answer",
+        "Updated assumptions/requirements"
+      ],
+      "acceptanceConditions": [
+        "The open item is resolved and recorded as a reviewed decision."
+      ],
+      "dependsOn": [],
+      "effort": {
+        "minimum": 1,
+        "maximum": 3,
+        "unit": "person-days"
+      },
+      "operatingModel": {
+        "primary": "flexible-talent",
+        "alternatives": [],
+        "confidence": "high",
+        "rationale": [
+          "The work is a focused task for one specialist with known skills.",
+          "A focused technical assessment fits a single specialist.",
+          "One clearly-defined role is required.",
+          "Small, self-contained effort that can be directly managed."
+        ],
+        "sourceIds": [
+          "Q_03",
+          "DEP_01",
+          "GAP_04"
+        ],
+        "scores": {
+          "flexible-talent": 8,
+          "challenge": 0,
+          "private-pod": 2
+        },
+        "overridden": false,
+        "overrideHistory": []
+      },
+      "provenance": "ai-recommended",
+      "readiness": "ready",
+      "blocked": false,
+      "executionPackage": {
+        "nodeId": "NODE_007",
+        "title": "Resolve: Should the portal eventually replace Hyland OnBase?",
+        "operatingModel": "flexible-talent",
+        "sourceIds": [
+          "Q_03",
+          "DEP_01",
+          "GAP_04"
+        ],
+        "readiness": "ready",
+        "kind": "flexible-talent",
+        "requiredRoles": [
+          "Specialist / Analyst"
+        ],
+        "requiredSkills": [
+          "General engineering"
+        ],
+        "seniority": "Senior specialist",
+        "durationOrCapacity": "1–3 person-days",
+        "responsibilities": [
+          "A documented decision or confirmed answer",
+          "Updated assumptions/requirements"
+        ],
+        "startDependencies": [],
+        "requiredAccessAndEnvironment": [
+          "Access to the relevant stakeholders or source systems"
+        ],
+        "readinessNote": "Ready to assign."
+      }
+    },
+    {
+      "id": "NODE_008",
+      "title": "Integrate Guidewire ClaimCenter integration",
+      "objective": "Deliver the Guidewire ClaimCenter integration integration (internal · event).",
+      "workCategory": "integration",
+      "scope": "bidirectional integration with Guidewire ClaimCenter",
+      "sourceIds": [
+        "IF_01"
+      ],
+      "inputs": [
+        "Event stream (publish/subscribe) carrying JSON payloads contract",
+        "OAuth 2.0 client credentials grant on the event broker connection credentials"
+      ],
+      "deliverables": [
+        "Guidewire ClaimCenter integration integration",
+        "Error handling & retry",
+        "Integration tests"
+      ],
+      "acceptanceConditions": [
+        "Messages flow in the specified direction.",
+        "Failures are handled per the retry policy."
+      ],
+      "dependsOn": [],
+      "effort": {
+        "minimum": 4,
+        "maximum": 8,
+        "unit": "person-days"
+      },
+      "operatingModel": {
+        "primary": "flexible-talent",
+        "alternatives": [],
+        "confidence": "high",
+        "rationale": [
+          "The work is a focused task for one specialist with known skills.",
+          "One clearly-defined role is required.",
+          "Small, self-contained effort that can be directly managed."
+        ],
+        "sourceIds": [
+          "IF_01"
+        ],
+        "scores": {
+          "flexible-talent": 6,
+          "challenge": 2,
+          "private-pod": 2
+        },
+        "overridden": false,
+        "overrideHistory": []
+      },
+      "provenance": "ai-recommended",
+      "readiness": "ready",
+      "blocked": false,
+      "executionPackage": {
+        "nodeId": "NODE_008",
+        "title": "Integrate Guidewire ClaimCenter integration",
+        "operatingModel": "flexible-talent",
+        "sourceIds": [
+          "IF_01"
+        ],
+        "readiness": "ready",
+        "kind": "flexible-talent",
+        "requiredRoles": [
+          "Integration Engineer"
+        ],
+        "requiredSkills": [
+          "API design",
+          "Messaging/ETL",
+          "Error handling"
+        ],
+        "seniority": "Mid–senior",
+        "durationOrCapacity": "4–8 person-days",
+        "responsibilities": [
+          "Guidewire ClaimCenter integration integration",
+          "Error handling & retry",
+          "Integration tests"
+        ],
+        "startDependencies": [],
+        "requiredAccessAndEnvironment": [
+          "Event stream (publish/subscribe) carrying JSON payloads contract",
+          "OAuth 2.0 client credentials grant on the event broker connection credentials"
+        ],
+        "readinessNote": "Ready to assign."
+      }
+    },
+    {
+      "id": "NODE_009",
+      "title": "Integrate SAP S/4HANA payment-posting integration",
+      "objective": "Deliver the SAP S/4HANA payment-posting integration integration (internal · api).",
+      "workCategory": "integration",
+      "scope": "outbound integration with SAP S/4HANA",
+      "sourceIds": [
+        "IF_02"
+      ],
+      "inputs": [
+        "REST/JSON over HTTPS (unconfirmed - the discovery notes also raise SAP IDoc batch extracts and SAP BAPI calls as a possible alternative; see GAP_01) contract",
+        "OAuth 2.0 client credentials grant credentials"
+      ],
+      "deliverables": [
+        "SAP S/4HANA payment-posting integration integration",
+        "Error handling & retry",
+        "Integration tests"
+      ],
+      "acceptanceConditions": [
+        "Messages flow in the specified direction.",
+        "Failures are handled per the retry policy."
+      ],
+      "dependsOn": [],
+      "effort": {
+        "minimum": 4,
+        "maximum": 8,
+        "unit": "person-days"
+      },
+      "operatingModel": {
+        "primary": "flexible-talent",
+        "alternatives": [],
+        "confidence": "high",
+        "rationale": [
+          "The work is a focused task for one specialist with known skills.",
+          "One clearly-defined role is required.",
+          "Small, self-contained effort that can be directly managed."
+        ],
+        "sourceIds": [
+          "IF_02"
+        ],
+        "scores": {
+          "flexible-talent": 6,
+          "challenge": 2,
+          "private-pod": 2
+        },
+        "overridden": false,
+        "overrideHistory": []
+      },
+      "provenance": "ai-recommended",
+      "readiness": "ready",
+      "blocked": false,
+      "executionPackage": {
+        "nodeId": "NODE_009",
+        "title": "Integrate SAP S/4HANA payment-posting integration",
+        "operatingModel": "flexible-talent",
+        "sourceIds": [
+          "IF_02"
+        ],
+        "readiness": "ready",
+        "kind": "flexible-talent",
+        "requiredRoles": [
+          "Integration Engineer"
+        ],
+        "requiredSkills": [
+          "API design",
+          "Messaging/ETL",
+          "Error handling"
+        ],
+        "seniority": "Mid–senior",
+        "durationOrCapacity": "4–8 person-days",
+        "responsibilities": [
+          "SAP S/4HANA payment-posting integration integration",
+          "Error handling & retry",
+          "Integration tests"
+        ],
+        "startDependencies": [],
+        "requiredAccessAndEnvironment": [
+          "REST/JSON over HTTPS (unconfirmed - the discovery notes also raise SAP IDoc batch extracts and SAP BAPI calls as a possible alternative; see GAP_01) contract",
+          "OAuth 2.0 client credentials grant credentials"
+        ],
+        "readinessNote": "Ready to assign."
+      }
+    },
+    {
+      "id": "NODE_010",
+      "title": "Integrate Okta SSO federation",
+      "objective": "Deliver the Okta SSO federation integration (external · api).",
+      "workCategory": "integration",
+      "scope": "inbound integration with Okta",
+      "sourceIds": [
+        "IF_03"
+      ],
+      "inputs": [
+        "OIDC/SAML federation (browser redirect) with Okta over HTTPS contract",
+        "User-delegated OIDC/SAML federation with Okta (authorization-code flow): the signed-in user's own identity is carried through, never a machine-to-machine client-credentials grant. credentials"
+      ],
+      "deliverables": [
+        "Okta SSO federation integration",
+        "Error handling & retry",
+        "Integration tests"
+      ],
+      "acceptanceConditions": [
+        "Messages flow in the specified direction.",
+        "Failures are handled per the retry policy."
+      ],
+      "dependsOn": [],
+      "effort": {
+        "minimum": 4,
+        "maximum": 8,
+        "unit": "person-days"
+      },
+      "operatingModel": {
+        "primary": "flexible-talent",
+        "alternatives": [],
+        "confidence": "high",
+        "rationale": [
+          "The work is a focused task for one specialist with known skills.",
+          "One clearly-defined role is required.",
+          "Small, self-contained effort that can be directly managed."
+        ],
+        "sourceIds": [
+          "IF_03"
+        ],
+        "scores": {
+          "flexible-talent": 6,
+          "challenge": 2,
+          "private-pod": 2
+        },
+        "overridden": false,
+        "overrideHistory": []
+      },
+      "provenance": "ai-recommended",
+      "readiness": "ready",
+      "blocked": false,
+      "executionPackage": {
+        "nodeId": "NODE_010",
+        "title": "Integrate Okta SSO federation",
+        "operatingModel": "flexible-talent",
+        "sourceIds": [
+          "IF_03"
+        ],
+        "readiness": "ready",
+        "kind": "flexible-talent",
+        "requiredRoles": [
+          "Integration Engineer"
+        ],
+        "requiredSkills": [
+          "API design",
+          "Messaging/ETL",
+          "Error handling"
+        ],
+        "seniority": "Mid–senior",
+        "durationOrCapacity": "4–8 person-days",
+        "responsibilities": [
+          "Okta SSO federation integration",
+          "Error handling & retry",
+          "Integration tests"
+        ],
+        "startDependencies": [],
+        "requiredAccessAndEnvironment": [
+          "OIDC/SAML federation (browser redirect) with Okta over HTTPS contract",
+          "User-delegated OIDC/SAML federation with Okta (authorization-code flow): the signed-in user's own identity is carried through, never a machine-to-machine client-credentials grant. credentials"
+        ],
+        "readinessNote": "Ready to assign."
+      }
+    },
+    {
+      "id": "NODE_011",
+      "title": "Integrate Agent-facing claim-submission API",
+      "objective": "Deliver the Agent-facing claim-submission API integration (external · api).",
+      "workCategory": "integration",
+      "scope": "bidirectional integration with Agent-facing claim-submission API",
+      "sourceIds": [
+        "IF_04"
+      ],
+      "inputs": [
+        "REST/JSON over HTTPS contract",
+        "OAuth 2.0 client credentials grant credentials"
+      ],
+      "deliverables": [
+        "Agent-facing claim-submission API integration",
+        "Error handling & retry",
+        "Integration tests"
+      ],
+      "acceptanceConditions": [
+        "Messages flow in the specified direction.",
+        "Failures are handled per the retry policy."
+      ],
+      "dependsOn": [],
+      "effort": {
+        "minimum": 4,
+        "maximum": 8,
+        "unit": "person-days"
+      },
+      "operatingModel": {
+        "primary": "flexible-talent",
+        "alternatives": [],
+        "confidence": "high",
+        "rationale": [
+          "The work is a focused task for one specialist with known skills.",
+          "One clearly-defined role is required.",
+          "Small, self-contained effort that can be directly managed."
+        ],
+        "sourceIds": [
+          "IF_04"
+        ],
+        "scores": {
+          "flexible-talent": 6,
+          "challenge": 2,
+          "private-pod": 2
+        },
+        "overridden": false,
+        "overrideHistory": []
+      },
+      "provenance": "ai-recommended",
+      "readiness": "ready",
+      "blocked": false,
+      "executionPackage": {
+        "nodeId": "NODE_011",
+        "title": "Integrate Agent-facing claim-submission API",
+        "operatingModel": "flexible-talent",
+        "sourceIds": [
+          "IF_04"
+        ],
+        "readiness": "ready",
+        "kind": "flexible-talent",
+        "requiredRoles": [
+          "Integration Engineer"
+        ],
+        "requiredSkills": [
+          "API design",
+          "Messaging/ETL",
+          "Error handling"
+        ],
+        "seniority": "Mid–senior",
+        "durationOrCapacity": "4–8 person-days",
+        "responsibilities": [
+          "Agent-facing claim-submission API integration",
+          "Error handling & retry",
+          "Integration tests"
+        ],
+        "startDependencies": [],
+        "requiredAccessAndEnvironment": [
+          "REST/JSON over HTTPS contract",
+          "OAuth 2.0 client credentials grant credentials"
+        ],
+        "readinessNote": "Ready to assign."
+      }
+    },
+    {
+      "id": "NODE_012",
+      "title": "Integrate Twilio SMS/email claim notifications",
+      "objective": "Deliver the Twilio SMS/email claim notifications integration (external · api).",
+      "workCategory": "integration",
+      "scope": "outbound integration with Twilio",
+      "sourceIds": [
+        "IF_05"
+      ],
+      "inputs": [
+        "REST/JSON over HTTPS contract",
+        "OAuth 2.0 client credentials grant credentials"
+      ],
+      "deliverables": [
+        "Twilio SMS/email claim notifications integration",
+        "Error handling & retry",
+        "Integration tests"
+      ],
+      "acceptanceConditions": [
+        "Messages flow in the specified direction.",
+        "Failures are handled per the retry policy."
+      ],
+      "dependsOn": [],
+      "effort": {
+        "minimum": 4,
+        "maximum": 8,
+        "unit": "person-days"
+      },
+      "operatingModel": {
+        "primary": "flexible-talent",
+        "alternatives": [],
+        "confidence": "high",
+        "rationale": [
+          "The work is a focused task for one specialist with known skills.",
+          "One clearly-defined role is required.",
+          "Small, self-contained effort that can be directly managed."
+        ],
+        "sourceIds": [
+          "IF_05"
+        ],
+        "scores": {
+          "flexible-talent": 6,
+          "challenge": 2,
+          "private-pod": 2
+        },
+        "overridden": false,
+        "overrideHistory": []
+      },
+      "provenance": "ai-recommended",
+      "readiness": "ready",
+      "blocked": false,
+      "executionPackage": {
+        "nodeId": "NODE_012",
+        "title": "Integrate Twilio SMS/email claim notifications",
+        "operatingModel": "flexible-talent",
+        "sourceIds": [
+          "IF_05"
+        ],
+        "readiness": "ready",
+        "kind": "flexible-talent",
+        "requiredRoles": [
+          "Integration Engineer"
+        ],
+        "requiredSkills": [
+          "API design",
+          "Messaging/ETL",
+          "Error handling"
+        ],
+        "seniority": "Mid–senior",
+        "durationOrCapacity": "4–8 person-days",
+        "responsibilities": [
+          "Twilio SMS/email claim notifications integration",
+          "Error handling & retry",
+          "Integration tests"
+        ],
+        "startDependencies": [],
+        "requiredAccessAndEnvironment": [
+          "REST/JSON over HTTPS contract",
+          "OAuth 2.0 client credentials grant credentials"
+        ],
+        "readinessNote": "Ready to assign."
+      }
+    },
+    {
+      "id": "NODE_013",
+      "title": "Integrate Hyland OnBase document-imaging integration",
+      "objective": "Deliver the Hyland OnBase document-imaging integration integration (internal · api).",
+      "workCategory": "integration",
+      "scope": "inbound integration with Hyland OnBase",
+      "sourceIds": [
+        "IF_06"
+      ],
+      "inputs": [
+        "REST/JSON over HTTPS contract",
+        "OAuth 2.0 client credentials grant credentials"
+      ],
+      "deliverables": [
+        "Hyland OnBase document-imaging integration integration",
+        "Error handling & retry",
+        "Integration tests"
+      ],
+      "acceptanceConditions": [
+        "Messages flow in the specified direction.",
+        "Failures are handled per the retry policy."
+      ],
+      "dependsOn": [],
+      "effort": {
+        "minimum": 4,
+        "maximum": 8,
+        "unit": "person-days"
+      },
+      "operatingModel": {
+        "primary": "flexible-talent",
+        "alternatives": [],
+        "confidence": "high",
+        "rationale": [
+          "The work is a focused task for one specialist with known skills.",
+          "One clearly-defined role is required.",
+          "Small, self-contained effort that can be directly managed."
+        ],
+        "sourceIds": [
+          "IF_06"
+        ],
+        "scores": {
+          "flexible-talent": 6,
+          "challenge": 2,
+          "private-pod": 2
+        },
+        "overridden": false,
+        "overrideHistory": []
+      },
+      "provenance": "ai-recommended",
+      "readiness": "ready",
+      "blocked": false,
+      "executionPackage": {
+        "nodeId": "NODE_013",
+        "title": "Integrate Hyland OnBase document-imaging integration",
+        "operatingModel": "flexible-talent",
+        "sourceIds": [
+          "IF_06"
+        ],
+        "readiness": "ready",
+        "kind": "flexible-talent",
+        "requiredRoles": [
+          "Integration Engineer"
+        ],
+        "requiredSkills": [
+          "API design",
+          "Messaging/ETL",
+          "Error handling"
+        ],
+        "seniority": "Mid–senior",
+        "durationOrCapacity": "4–8 person-days",
+        "responsibilities": [
+          "Hyland OnBase document-imaging integration integration",
+          "Error handling & retry",
+          "Integration tests"
+        ],
+        "startDependencies": [],
+        "requiredAccessAndEnvironment": [
+          "REST/JSON over HTTPS contract",
+          "OAuth 2.0 client credentials grant credentials"
+        ],
+        "readinessNote": "Ready to assign."
+      }
+    },
+    {
+      "id": "NODE_014",
+      "title": "Integrate Legacy ClaimsDesk Portal (parallel-run cutover)",
+      "objective": "Deliver the Legacy ClaimsDesk Portal (parallel-run cutover) integration (internal · api).",
+      "workCategory": "integration",
+      "scope": "bidirectional integration with Legacy ClaimsDesk Portal",
+      "sourceIds": [
+        "IF_07"
+      ],
+      "inputs": [
+        "REST/JSON over HTTPS contract",
+        "Mutual TLS (mTLS) certificate authentication credentials"
+      ],
+      "deliverables": [
+        "Legacy ClaimsDesk Portal (parallel-run cutover) integration",
+        "Error handling & retry",
+        "Integration tests"
+      ],
+      "acceptanceConditions": [
+        "Messages flow in the specified direction.",
+        "Failures are handled per the retry policy."
+      ],
+      "dependsOn": [],
+      "effort": {
+        "minimum": 4,
+        "maximum": 8,
+        "unit": "person-days"
+      },
+      "operatingModel": {
+        "primary": "flexible-talent",
+        "alternatives": [],
+        "confidence": "high",
+        "rationale": [
+          "The work is a focused task for one specialist with known skills.",
+          "One clearly-defined role is required.",
+          "Small, self-contained effort that can be directly managed."
+        ],
+        "sourceIds": [
+          "IF_07"
+        ],
+        "scores": {
+          "flexible-talent": 6,
+          "challenge": 2,
+          "private-pod": 2
+        },
+        "overridden": false,
+        "overrideHistory": []
+      },
+      "provenance": "ai-recommended",
+      "readiness": "ready",
+      "blocked": false,
+      "executionPackage": {
+        "nodeId": "NODE_014",
+        "title": "Integrate Legacy ClaimsDesk Portal (parallel-run cutover)",
+        "operatingModel": "flexible-talent",
+        "sourceIds": [
+          "IF_07"
+        ],
+        "readiness": "ready",
+        "kind": "flexible-talent",
+        "requiredRoles": [
+          "Integration Engineer"
+        ],
+        "requiredSkills": [
+          "API design",
+          "Messaging/ETL",
+          "Error handling"
+        ],
+        "seniority": "Mid–senior",
+        "durationOrCapacity": "4–8 person-days",
+        "responsibilities": [
+          "Legacy ClaimsDesk Portal (parallel-run cutover) integration",
+          "Error handling & retry",
+          "Integration tests"
+        ],
+        "startDependencies": [],
+        "requiredAccessAndEnvironment": [
+          "REST/JSON over HTTPS contract",
+          "Mutual TLS (mTLS) certificate authentication credentials"
+        ],
+        "readinessNote": "Ready to assign."
+      }
+    },
+    {
+      "id": "NODE_015",
+      "title": "Build AI capability: Advisory reserve-range suggestion for examiners",
+      "objective": "Implement \"Advisory reserve-range suggestion for examiners\" (Recommendation engine), including evaluation and safety controls.",
+      "workCategory": "ai-implementation",
+      "scope": "Recommendation engine delivering FR_10 (Offer examiners a suggested reserve range based on similar historical claims, clearly marked as advisory only.).",
+      "sourceIds": [
+        "AIUC_01",
+        "FR_10"
+      ],
+      "inputs": [
+        "Grounding data sources",
+        "Evaluation dataset"
+      ],
+      "deliverables": [
+        "Advisory reserve-range suggestion for examiners implementation",
+        "Evaluation harness",
+        "Safety guardrails"
+      ],
+      "acceptanceConditions": [
+        "Outputs are grounded and evaluated.",
+        "Human review is enforced where required."
+      ],
+      "dependsOn": [],
+      "effort": {
+        "minimum": 6,
+        "maximum": 12,
+        "unit": "person-days"
+      },
+      "operatingModel": {
+        "primary": "private-pod",
+        "alternatives": [
+          "challenge"
+        ],
+        "confidence": "low",
+        "rationale": [
+          "Regulated requirements need sustained delivery ownership.",
+          "Confidence is low — review the alternative model(s) before committing."
+        ],
+        "sourceIds": [
+          "AIUC_01",
+          "FR_10"
+        ],
+        "scores": {
+          "flexible-talent": 0,
+          "challenge": 2,
+          "private-pod": 2
+        },
+        "overridden": false,
+        "overrideHistory": []
+      },
+      "provenance": "ai-recommended",
+      "readiness": "review-required",
+      "blocked": false,
+      "executionPackage": {
+        "nodeId": "NODE_015",
+        "title": "Build AI capability: Advisory reserve-range suggestion for examiners",
+        "operatingModel": "private-pod",
+        "sourceIds": [
+          "AIUC_01",
+          "FR_10"
+        ],
+        "readiness": "review-required",
+        "kind": "private-pod",
+        "objective": "Implement \"Advisory reserve-range suggestion for examiners\" (Recommendation engine), including evaluation and safety controls.",
+        "requiredRoles": [
+          "AI/ML Engineer",
+          "Data Engineer"
+        ],
+        "requiredSkills": [
+          "LLM/ML",
+          "RAG",
+          "Evaluation",
+          "Safety"
+        ],
+        "technicalLeadership": "A technical lead owns architecture decisions and coordination.",
+        "componentOwnership": "Recommendation engine delivering FR_10 (Offer examiners a suggested reserve range based on similar historical claims, clearly marked as advisory only.).",
+        "deliveryResponsibilities": [
+          "Advisory reserve-range suggestion for examiners implementation",
+          "Evaluation harness",
+          "Safety guardrails"
+        ],
+        "securityAndAccess": "Controlled access to restricted systems/data; least-privilege enforced.",
+        "coordinationDependencies": [],
+        "expectedDuration": "6–12 person-days",
+        "definitionOfCompletion": [
+          "Outputs are grounded and evaluated.",
+          "Human review is enforced where required."
+        ],
+        "readinessNote": "Resolve linked items before mobilizing the pod."
+      }
+    },
+    {
+      "id": "NODE_016",
+      "title": "Data platform & migration",
+      "objective": "Deliver data domains, pipelines, quality, lineage, and any required migration.",
+      "workCategory": "data-engineering",
+      "scope": "5 data domain(s); 5 data requirement(s)",
+      "sourceIds": [
+        "DATA_01",
+        "DATA_02",
+        "DATA_03",
+        "DATA_04",
+        "DATA_05",
+        "DD_01",
+        "DD_02",
+        "DD_03",
+        "DD_04",
+        "DD_05"
+      ],
+      "inputs": [
+        "Source schemas",
+        "Data classification policy"
+      ],
+      "deliverables": [
+        "Data pipelines",
+        "Quality & lineage controls",
+        "Migration (if in scope)"
+      ],
+      "acceptanceConditions": [
+        "Data is validated and reconciled.",
+        "Lineage is traceable."
+      ],
+      "dependsOn": [],
+      "effort": {
+        "minimum": 8,
+        "maximum": 15,
+        "unit": "person-days"
+      },
+      "operatingModel": {
+        "primary": "private-pod",
+        "alternatives": [],
+        "confidence": "high",
+        "rationale": [
+          "The components are strongly coupled and must be built together.",
+          "Restricted/sensitive data requires a controlled, vetted team.",
+          "Regulated requirements need sustained delivery ownership."
+        ],
+        "sourceIds": [
+          "DATA_01",
+          "DATA_02",
+          "DATA_03",
+          "DATA_04",
+          "DATA_05",
+          "DD_01",
+          "DD_02",
+          "DD_03"
+        ],
+        "scores": {
+          "flexible-talent": 2,
+          "challenge": 2,
+          "private-pod": 8
+        },
+        "overridden": false,
+        "overrideHistory": []
+      },
+      "provenance": "ai-recommended",
+      "readiness": "ready",
+      "blocked": false,
+      "executionPackage": {
+        "nodeId": "NODE_016",
+        "title": "Data platform & migration",
+        "operatingModel": "private-pod",
+        "sourceIds": [
+          "DATA_01",
+          "DATA_02",
+          "DATA_03",
+          "DATA_04",
+          "DATA_05",
+          "DD_01",
+          "DD_02",
+          "DD_03",
+          "DD_04",
+          "DD_05"
+        ],
+        "readiness": "ready",
+        "kind": "private-pod",
+        "objective": "Deliver data domains, pipelines, quality, lineage, and any required migration.",
+        "requiredRoles": [
+          "Data Engineer"
+        ],
+        "requiredSkills": [
+          "Pipelines",
+          "Data quality",
+          "Lineage"
+        ],
+        "technicalLeadership": "A technical lead owns architecture decisions and coordination.",
+        "componentOwnership": "5 data domain(s); 5 data requirement(s)",
+        "deliveryResponsibilities": [
+          "Data pipelines",
+          "Quality & lineage controls",
+          "Migration (if in scope)"
+        ],
+        "securityAndAccess": "Controlled access to restricted systems/data; least-privilege enforced.",
+        "coordinationDependencies": [],
+        "expectedDuration": "8–15 person-days",
+        "definitionOfCompletion": [
+          "Data is validated and reconciled.",
+          "Lineage is traceable."
+        ],
+        "readinessNote": "Ready to mobilize."
+      }
+    },
+    {
+      "id": "NODE_017",
+      "title": "Security & compliance controls",
+      "objective": "Implement security, privacy, and compliance controls across the solution.",
+      "workCategory": "security",
+      "scope": "6 security/compliance requirement(s)",
+      "sourceIds": [
+        "SEC_01",
+        "SEC_02",
+        "SEC_03",
+        "SEC_04",
+        "SEC_05",
+        "SEC_06"
+      ],
+      "inputs": [
+        "Compliance scope",
+        "Threat model"
+      ],
+      "deliverables": [
+        "Access controls",
+        "Audit logging",
+        "Compliance evidence"
+      ],
+      "acceptanceConditions": [
+        "Unauthorized access is rejected.",
+        "Controls meet the stated compliance scope."
+      ],
+      "dependsOn": [],
+      "effort": {
+        "minimum": 5,
+        "maximum": 10,
+        "unit": "person-days"
+      },
+      "operatingModel": {
+        "primary": "private-pod",
+        "alternatives": [],
+        "confidence": "high",
+        "rationale": [
+          "Restricted/sensitive data requires a controlled, vetted team.",
+          "Regulated requirements need sustained delivery ownership.",
+          "Security-critical, coupled work benefits from a dedicated pod."
+        ],
+        "sourceIds": [
+          "SEC_01",
+          "SEC_02",
+          "SEC_03",
+          "SEC_04",
+          "SEC_05",
+          "SEC_06"
+        ],
+        "scores": {
+          "flexible-talent": 2,
+          "challenge": 2,
+          "private-pod": 6
+        },
+        "overridden": false,
+        "overrideHistory": []
+      },
+      "provenance": "ai-recommended",
+      "readiness": "ready",
+      "blocked": false,
+      "executionPackage": {
+        "nodeId": "NODE_017",
+        "title": "Security & compliance controls",
+        "operatingModel": "private-pod",
+        "sourceIds": [
+          "SEC_01",
+          "SEC_02",
+          "SEC_03",
+          "SEC_04",
+          "SEC_05",
+          "SEC_06"
+        ],
+        "readiness": "ready",
+        "kind": "private-pod",
+        "objective": "Implement security, privacy, and compliance controls across the solution.",
+        "requiredRoles": [
+          "Security Engineer"
+        ],
+        "requiredSkills": [
+          "IAM",
+          "Compliance",
+          "Threat modeling"
+        ],
+        "technicalLeadership": "A technical lead owns architecture decisions and coordination.",
+        "componentOwnership": "6 security/compliance requirement(s)",
+        "deliveryResponsibilities": [
+          "Access controls",
+          "Audit logging",
+          "Compliance evidence"
+        ],
+        "securityAndAccess": "Controlled access to restricted systems/data; least-privilege enforced.",
+        "coordinationDependencies": [],
+        "expectedDuration": "5–10 person-days",
+        "definitionOfCompletion": [
+          "Unauthorized access is rejected.",
+          "Controls meet the stated compliance scope."
+        ],
+        "readinessNote": "Ready to mobilize."
+      }
+    },
+    {
+      "id": "NODE_018",
+      "title": "Explore the user experience",
+      "objective": "Produce UX concepts and a validated interaction design for the core journeys.",
+      "workCategory": "ux-design",
+      "scope": "4 persona(s); core functional journeys",
+      "sourceIds": [
+        "PER_01",
+        "PER_02",
+        "PER_03",
+        "PER_04",
+        "FR_01",
+        "FR_02",
+        "FR_03",
+        "FR_04"
+      ],
+      "inputs": [
+        "Personas",
+        "Core journeys"
+      ],
+      "deliverables": [
+        "UX concepts",
+        "Validated interaction design"
+      ],
+      "acceptanceConditions": [
+        "Designs cover the core journeys.",
+        "Designs meet usability criteria."
+      ],
+      "dependsOn": [],
+      "effort": {
+        "minimum": 5,
+        "maximum": 10,
+        "unit": "person-days"
+      },
+      "operatingModel": {
+        "primary": "challenge",
+        "alternatives": [],
+        "confidence": "high",
+        "rationale": [
+          "Multiple approaches or perspectives would add value.",
+          "The scope is bounded and can be evaluated against clear criteria.",
+          "The work can be packaged and delivered independently.",
+          "Design exploration is well suited to competitive delivery."
+        ],
+        "sourceIds": [
+          "PER_01",
+          "PER_02",
+          "PER_03",
+          "PER_04",
+          "FR_01",
+          "FR_02",
+          "FR_03",
+          "FR_04"
+        ],
+        "scores": {
+          "flexible-talent": 2,
+          "challenge": 8,
+          "private-pod": 5
+        },
+        "overridden": false,
+        "overrideHistory": []
+      },
+      "provenance": "ai-recommended",
+      "readiness": "ready",
+      "blocked": false,
+      "executionPackage": {
+        "nodeId": "NODE_018",
+        "title": "Explore the user experience",
+        "operatingModel": "challenge",
+        "sourceIds": [
+          "PER_01",
+          "PER_02",
+          "PER_03",
+          "PER_04",
+          "FR_01",
+          "FR_02",
+          "FR_03",
+          "FR_04"
+        ],
+        "readiness": "ready",
+        "kind": "challenge",
+        "objective": "Produce UX concepts and a validated interaction design for the core journeys.",
+        "businessAndTechnicalContext": "4 persona(s); core functional journeys",
+        "deliverables": [
+          "UX concepts",
+          "Validated interaction design"
+        ],
+        "evaluationCriteria": [
+          "Designs cover the core journeys.",
+          "Designs meet usability criteria."
+        ],
+        "acceptanceConditions": [
+          "Designs cover the core journeys.",
+          "Designs meet usability criteria."
+        ],
+        "inputAssets": [
+          "Personas",
+          "Core journeys"
+        ],
+        "requiredTechnologies": [
+          "Interaction design",
+          "Usability testing"
+        ],
+        "dependencies": [],
+        "confidentialityLimitations": "No unrestricted access to sensitive information is required.",
+        "expectedReviewProcess": "Submissions reviewed against the evaluation criteria; winner selected on score.",
+        "readinessNote": "Ready to launch."
+      }
+    },
+    {
+      "id": "NODE_019",
+      "title": "Build user-apps",
+      "objective": "Implement the user-apps components and their interfaces.",
+      "workCategory": "solution-delivery",
+      "scope": "1 architecture component(s) in user-apps",
+      "sourceIds": [
+        "ARC_01",
+        "NFR_02",
+        "NFR_05"
+      ],
+      "inputs": [
+        "Approved architecture",
+        "Interface contracts"
+      ],
+      "deliverables": [
+        "user-apps components",
+        "Automated tests"
+      ],
+      "acceptanceConditions": [
+        "Components meet their stated purpose.",
+        "Automated tests pass."
+      ],
+      "dependsOn": [
+        "NODE_018",
+        "NODE_016",
+        "NODE_017"
+      ],
+      "effort": {
+        "minimum": 7,
+        "maximum": 12,
+        "unit": "person-days"
+      },
+      "operatingModel": {
+        "primary": "private-pod",
+        "alternatives": [],
+        "confidence": "high",
+        "rationale": [
+          "The work needs continuous technical coordination across roles.",
+          "Regulated requirements need sustained delivery ownership.",
+          "Multiple technical roles must work together."
+        ],
+        "sourceIds": [
+          "ARC_01",
+          "NFR_02",
+          "NFR_05"
+        ],
+        "scores": {
+          "flexible-talent": 0,
+          "challenge": 2,
+          "private-pod": 7
+        },
+        "overridden": false,
+        "overrideHistory": []
+      },
+      "provenance": "ai-recommended",
+      "readiness": "review-required",
+      "blocked": false,
+      "executionPackage": {
+        "nodeId": "NODE_019",
+        "title": "Build user-apps",
+        "operatingModel": "private-pod",
+        "sourceIds": [
+          "ARC_01",
+          "NFR_02",
+          "NFR_05"
+        ],
+        "readiness": "review-required",
+        "kind": "private-pod",
+        "objective": "Implement the user-apps components and their interfaces.",
+        "requiredRoles": [
+          "Tech Lead",
+          "Backend Engineer",
+          "Frontend Engineer"
+        ],
+        "requiredSkills": [
+          "General engineering"
+        ],
+        "technicalLeadership": "A technical lead owns architecture decisions and coordination.",
+        "componentOwnership": "1 architecture component(s) in user-apps",
+        "deliveryResponsibilities": [
+          "user-apps components",
+          "Automated tests"
+        ],
+        "securityAndAccess": "Standard delivery access.",
+        "coordinationDependencies": [
+          "NODE_018",
+          "NODE_016",
+          "NODE_017"
+        ],
+        "expectedDuration": "7–12 person-days",
+        "definitionOfCompletion": [
+          "Components meet their stated purpose.",
+          "Automated tests pass."
+        ],
+        "readinessNote": "Resolve linked items before mobilizing the pod."
+      }
+    },
+    {
+      "id": "NODE_020",
+      "title": "Build api",
+      "objective": "Implement the api components and their interfaces.",
+      "workCategory": "backend-api",
+      "scope": "2 architecture component(s) in api",
+      "sourceIds": [
+        "ARC_02",
+        "ARC_15",
+        "NFR_02",
+        "NFR_03",
+        "NFR_06",
+        "SEC_03",
+        "INT_01",
+        "INT_02",
+        "INT_03",
+        "INT_04",
+        "INT_05"
+      ],
+      "inputs": [
+        "Approved architecture",
+        "Interface contracts"
+      ],
+      "deliverables": [
+        "api components",
+        "Automated tests"
+      ],
+      "acceptanceConditions": [
+        "Components meet their stated purpose.",
+        "Automated tests pass."
+      ],
+      "dependsOn": [
+        "NODE_001",
+        "NODE_005",
+        "NODE_018",
+        "NODE_016",
+        "NODE_017"
+      ],
+      "effort": {
+        "minimum": 8,
+        "maximum": 14,
+        "unit": "person-days"
+      },
+      "operatingModel": {
+        "primary": "private-pod",
+        "alternatives": [],
+        "confidence": "high",
+        "rationale": [
+          "The components are strongly coupled and must be built together.",
+          "Regulated requirements need sustained delivery ownership."
+        ],
+        "sourceIds": [
+          "ARC_02",
+          "ARC_15",
+          "NFR_02",
+          "NFR_03",
+          "NFR_06",
+          "SEC_03",
+          "INT_01",
+          "INT_02"
+        ],
+        "scores": {
+          "flexible-talent": 0,
+          "challenge": 2,
+          "private-pod": 5
+        },
+        "overridden": false,
+        "overrideHistory": []
+      },
+      "provenance": "ai-recommended",
+      "readiness": "review-required",
+      "blocked": false,
+      "executionPackage": {
+        "nodeId": "NODE_020",
+        "title": "Build api",
+        "operatingModel": "private-pod",
+        "sourceIds": [
+          "ARC_02",
+          "ARC_15",
+          "NFR_02",
+          "NFR_03",
+          "NFR_06",
+          "SEC_03",
+          "INT_01",
+          "INT_02",
+          "INT_03",
+          "INT_04",
+          "INT_05"
+        ],
+        "readiness": "review-required",
+        "kind": "private-pod",
+        "objective": "Implement the api components and their interfaces.",
+        "requiredRoles": [
+          "Backend Engineer"
+        ],
+        "requiredSkills": [
+          "Service design",
+          "Databases"
+        ],
+        "technicalLeadership": "A technical lead owns architecture decisions and coordination.",
+        "componentOwnership": "2 architecture component(s) in api",
+        "deliveryResponsibilities": [
+          "api components",
+          "Automated tests"
+        ],
+        "securityAndAccess": "Standard delivery access.",
+        "coordinationDependencies": [
+          "NODE_001",
+          "NODE_005",
+          "NODE_018",
+          "NODE_016",
+          "NODE_017"
+        ],
+        "expectedDuration": "8–14 person-days",
+        "definitionOfCompletion": [
+          "Components meet their stated purpose.",
+          "Automated tests pass."
+        ],
+        "readinessNote": "Resolve linked items before mobilizing the pod."
+      }
+    },
+    {
+      "id": "NODE_021",
+      "title": "Build backend",
+      "objective": "Implement the backend components and their interfaces.",
+      "workCategory": "solution-delivery",
+      "scope": "1 architecture component(s) in backend",
+      "sourceIds": [
+        "ARC_03",
+        "NFR_02",
+        "NFR_03",
+        "NFR_06"
+      ],
+      "inputs": [
+        "Approved architecture",
+        "Interface contracts"
+      ],
+      "deliverables": [
+        "backend components",
+        "Automated tests"
+      ],
+      "acceptanceConditions": [
+        "Components meet their stated purpose.",
+        "Automated tests pass."
+      ],
+      "dependsOn": [
+        "NODE_018",
+        "NODE_016",
+        "NODE_017"
+      ],
+      "effort": {
+        "minimum": 7,
+        "maximum": 12,
+        "unit": "person-days"
+      },
+      "operatingModel": {
+        "primary": "private-pod",
+        "alternatives": [],
+        "confidence": "high",
+        "rationale": [
+          "The work needs continuous technical coordination across roles.",
+          "Regulated requirements need sustained delivery ownership.",
+          "Multiple technical roles must work together."
+        ],
+        "sourceIds": [
+          "ARC_03",
+          "NFR_02",
+          "NFR_03",
+          "NFR_06"
+        ],
+        "scores": {
+          "flexible-talent": 0,
+          "challenge": 2,
+          "private-pod": 7
+        },
+        "overridden": false,
+        "overrideHistory": []
+      },
+      "provenance": "ai-recommended",
+      "readiness": "review-required",
+      "blocked": false,
+      "executionPackage": {
+        "nodeId": "NODE_021",
+        "title": "Build backend",
+        "operatingModel": "private-pod",
+        "sourceIds": [
+          "ARC_03",
+          "NFR_02",
+          "NFR_03",
+          "NFR_06"
+        ],
+        "readiness": "review-required",
+        "kind": "private-pod",
+        "objective": "Implement the backend components and their interfaces.",
+        "requiredRoles": [
+          "Tech Lead",
+          "Backend Engineer",
+          "Frontend Engineer"
+        ],
+        "requiredSkills": [
+          "General engineering"
+        ],
+        "technicalLeadership": "A technical lead owns architecture decisions and coordination.",
+        "componentOwnership": "1 architecture component(s) in backend",
+        "deliveryResponsibilities": [
+          "backend components",
+          "Automated tests"
+        ],
+        "securityAndAccess": "Standard delivery access.",
+        "coordinationDependencies": [
+          "NODE_018",
+          "NODE_016",
+          "NODE_017"
+        ],
+        "expectedDuration": "7–12 person-days",
+        "definitionOfCompletion": [
+          "Components meet their stated purpose.",
+          "Automated tests pass."
+        ],
+        "readinessNote": "Resolve linked items before mobilizing the pod."
+      }
+    },
+    {
+      "id": "NODE_022",
+      "title": "Build data-storage",
+      "objective": "Implement the data-storage components and their interfaces.",
+      "workCategory": "data-engineering",
+      "scope": "7 architecture component(s) in data-storage",
+      "sourceIds": [
+        "ARC_04",
+        "ARC_19",
+        "ARC_20",
+        "ARC_21",
+        "ARC_22",
+        "ARC_27",
+        "ARC_28",
+        "NFR_02",
+        "NFR_03",
+        "NFR_06",
+        "SEC_02",
+        "FR_02"
+      ],
+      "inputs": [
+        "Approved architecture",
+        "Interface contracts"
+      ],
+      "deliverables": [
+        "data-storage components",
+        "Automated tests"
+      ],
+      "acceptanceConditions": [
+        "Components meet their stated purpose.",
+        "Automated tests pass."
+      ],
+      "dependsOn": [
+        "NODE_016",
+        "NODE_017"
+      ],
+      "effort": {
+        "minimum": 13,
+        "maximum": 24,
+        "unit": "person-days"
+      },
+      "operatingModel": {
+        "primary": "private-pod",
+        "alternatives": [],
+        "confidence": "high",
+        "rationale": [
+          "The work needs continuous technical coordination across roles.",
+          "The components are strongly coupled and must be built together.",
+          "Regulated requirements need sustained delivery ownership."
+        ],
+        "sourceIds": [
+          "ARC_04",
+          "ARC_19",
+          "ARC_20",
+          "ARC_21",
+          "ARC_22",
+          "ARC_27",
+          "ARC_28",
+          "NFR_02"
+        ],
+        "scores": {
+          "flexible-talent": 0,
+          "challenge": 0,
+          "private-pod": 8
+        },
+        "overridden": false,
+        "overrideHistory": []
+      },
+      "provenance": "ai-recommended",
+      "readiness": "review-required",
+      "blocked": false,
+      "executionPackage": {
+        "nodeId": "NODE_022",
+        "title": "Build data-storage",
+        "operatingModel": "private-pod",
+        "sourceIds": [
+          "ARC_04",
+          "ARC_19",
+          "ARC_20",
+          "ARC_21",
+          "ARC_22",
+          "ARC_27",
+          "ARC_28",
+          "NFR_02",
+          "NFR_03",
+          "NFR_06",
+          "SEC_02",
+          "FR_02"
+        ],
+        "readiness": "review-required",
+        "kind": "private-pod",
+        "objective": "Implement the data-storage components and their interfaces.",
+        "requiredRoles": [
+          "Data Engineer"
+        ],
+        "requiredSkills": [
+          "Pipelines",
+          "Data quality",
+          "Lineage"
+        ],
+        "technicalLeadership": "A technical lead owns architecture decisions and coordination.",
+        "componentOwnership": "7 architecture component(s) in data-storage",
+        "deliveryResponsibilities": [
+          "data-storage components",
+          "Automated tests"
+        ],
+        "securityAndAccess": "Controlled access to restricted systems/data; least-privilege enforced.",
+        "coordinationDependencies": [
+          "NODE_016",
+          "NODE_017"
+        ],
+        "expectedDuration": "13–24 person-days",
+        "definitionOfCompletion": [
+          "Components meet their stated purpose.",
+          "Automated tests pass."
+        ],
+        "readinessNote": "Resolve linked items before mobilizing the pod."
+      }
+    },
+    {
+      "id": "NODE_023",
+      "title": "Independent testing & quality",
+      "objective": "Verify the solution against acceptance criteria with independent testing.",
+      "workCategory": "testing",
+      "scope": "End-to-end and non-functional testing",
+      "sourceIds": [
+        "NFR_01",
+        "NFR_02",
+        "NFR_03",
+        "NFR_04",
+        "NFR_05",
+        "NFR_06"
+      ],
+      "inputs": [
+        "Built components",
+        "Acceptance criteria"
+      ],
+      "deliverables": [
+        "Test suites",
+        "Defect report",
+        "Sign-off"
+      ],
+      "acceptanceConditions": [
+        "Acceptance criteria verified.",
+        "Critical defects resolved."
+      ],
+      "dependsOn": [
+        "NODE_019",
+        "NODE_020",
+        "NODE_021",
+        "NODE_022",
+        "NODE_008",
+        "NODE_009",
+        "NODE_010",
+        "NODE_011",
+        "NODE_012",
+        "NODE_013",
+        "NODE_014",
+        "NODE_015",
+        "NODE_016",
+        "NODE_017",
+        "NODE_002",
+        "NODE_003",
+        "NODE_004",
+        "NODE_006",
+        "NODE_007"
+      ],
+      "effort": {
+        "minimum": 4,
+        "maximum": 8,
+        "unit": "person-days"
+      },
+      "operatingModel": {
+        "primary": "flexible-talent",
+        "alternatives": [
+          "challenge"
+        ],
+        "confidence": "medium",
+        "rationale": [
+          "The work is a focused task for one specialist with known skills.",
+          "One clearly-defined role is required.",
+          "Small, self-contained effort that can be directly managed."
+        ],
+        "sourceIds": [
+          "NFR_01",
+          "NFR_02",
+          "NFR_03",
+          "NFR_04",
+          "NFR_05",
+          "NFR_06"
+        ],
+        "scores": {
+          "flexible-talent": 6,
+          "challenge": 4,
+          "private-pod": 2
+        },
+        "overridden": false,
+        "overrideHistory": []
+      },
+      "provenance": "ai-recommended",
+      "readiness": "ready",
+      "blocked": false,
+      "executionPackage": {
+        "nodeId": "NODE_023",
+        "title": "Independent testing & quality",
+        "operatingModel": "flexible-talent",
+        "sourceIds": [
+          "NFR_01",
+          "NFR_02",
+          "NFR_03",
+          "NFR_04",
+          "NFR_05",
+          "NFR_06"
+        ],
+        "readiness": "ready",
+        "kind": "flexible-talent",
+        "requiredRoles": [
+          "QA Engineer"
+        ],
+        "requiredSkills": [
+          "Test automation",
+          "NFR testing"
+        ],
+        "seniority": "Mid–senior",
+        "durationOrCapacity": "4–8 person-days",
+        "responsibilities": [
+          "Test suites",
+          "Defect report",
+          "Sign-off"
+        ],
+        "startDependencies": [
+          "NODE_019",
+          "NODE_020",
+          "NODE_021",
+          "NODE_022",
+          "NODE_008",
+          "NODE_009",
+          "NODE_010",
+          "NODE_011",
+          "NODE_012",
+          "NODE_013",
+          "NODE_014",
+          "NODE_015",
+          "NODE_016",
+          "NODE_017",
+          "NODE_002",
+          "NODE_003",
+          "NODE_004",
+          "NODE_006",
+          "NODE_007"
+        ],
+        "requiredAccessAndEnvironment": [
+          "Built components",
+          "Acceptance criteria"
+        ],
+        "readinessNote": "Ready to assign."
+      }
+    },
+    {
+      "id": "NODE_024",
+      "title": "Deployment & cutover",
+      "objective": "Deploy to target environments and execute cutover.",
+      "workCategory": "deployment",
+      "scope": "Environment setup, release, cutover",
+      "sourceIds": [
+        "CON_01",
+        "CON_02",
+        "CON_03",
+        "CON_04"
+      ],
+      "inputs": [
+        "Release artifacts",
+        "Environment access"
+      ],
+      "deliverables": [
+        "Deployed solution",
+        "Runbook"
+      ],
+      "acceptanceConditions": [
+        "Solution runs in the target environment.",
+        "Rollback is tested."
+      ],
+      "dependsOn": [
+        "NODE_023"
+      ],
+      "effort": {
+        "minimum": 3,
+        "maximum": 6,
+        "unit": "person-days"
+      },
+      "operatingModel": {
+        "primary": "private-pod",
+        "alternatives": [],
+        "confidence": "high",
+        "rationale": [
+          "The work needs continuous technical coordination across roles.",
+          "Regulated requirements need sustained delivery ownership.",
+          "Multiple technical roles must work together."
+        ],
+        "sourceIds": [
+          "CON_01",
+          "CON_02",
+          "CON_03",
+          "CON_04"
+        ],
+        "scores": {
+          "flexible-talent": 0,
+          "challenge": 2,
+          "private-pod": 7
+        },
+        "overridden": false,
+        "overrideHistory": []
+      },
+      "provenance": "ai-recommended",
+      "readiness": "review-required",
+      "blocked": false,
+      "executionPackage": {
+        "nodeId": "NODE_024",
+        "title": "Deployment & cutover",
+        "operatingModel": "private-pod",
+        "sourceIds": [
+          "CON_01",
+          "CON_02",
+          "CON_03",
+          "CON_04"
+        ],
+        "readiness": "review-required",
+        "kind": "private-pod",
+        "objective": "Deploy to target environments and execute cutover.",
+        "requiredRoles": [
+          "Release Engineer",
+          "Cloud/DevOps Engineer"
+        ],
+        "requiredSkills": [
+          "General engineering"
+        ],
+        "technicalLeadership": "A technical lead owns architecture decisions and coordination.",
+        "componentOwnership": "Environment setup, release, cutover",
+        "deliveryResponsibilities": [
+          "Deployed solution",
+          "Runbook"
+        ],
+        "securityAndAccess": "Standard delivery access.",
+        "coordinationDependencies": [
+          "NODE_023"
+        ],
+        "expectedDuration": "3–6 person-days",
+        "definitionOfCompletion": [
+          "Solution runs in the target environment.",
+          "Rollback is tested."
+        ],
+        "readinessNote": "Resolve linked items before mobilizing the pod."
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "EDGE_001",
+      "source": "NODE_001",
+      "target": "NODE_020",
+      "type": "blocking-discovery",
+      "rationale": "Build api needs \"Resolve: SAP S/4HANA integration pattern unconfirmed\" resolved first.",
+      "blocking": true
+    },
+    {
+      "id": "EDGE_002",
+      "source": "NODE_005",
+      "target": "NODE_020",
+      "type": "blocking-discovery",
+      "rationale": "Build api needs \"Resolve: Does SAP S/4HANA expose a REST API for journal posting?\" resolved first.",
+      "blocking": true
+    },
+    {
+      "id": "EDGE_003",
+      "source": "NODE_018",
+      "target": "NODE_019",
+      "type": "design-handoff",
+      "rationale": "Implementation needs the approved experience.",
+      "blocking": true
+    },
+    {
+      "id": "EDGE_004",
+      "source": "NODE_018",
+      "target": "NODE_020",
+      "type": "design-handoff",
+      "rationale": "Implementation needs the approved experience.",
+      "blocking": true
+    },
+    {
+      "id": "EDGE_005",
+      "source": "NODE_018",
+      "target": "NODE_021",
+      "type": "design-handoff",
+      "rationale": "Implementation needs the approved experience.",
+      "blocking": true
+    },
+    {
+      "id": "EDGE_006",
+      "source": "NODE_016",
+      "target": "NODE_019",
+      "type": "data-foundation",
+      "rationale": "Implementation depends on the data platform.",
+      "blocking": true
+    },
+    {
+      "id": "EDGE_007",
+      "source": "NODE_016",
+      "target": "NODE_020",
+      "type": "data-foundation",
+      "rationale": "Implementation depends on the data platform.",
+      "blocking": true
+    },
+    {
+      "id": "EDGE_008",
+      "source": "NODE_016",
+      "target": "NODE_021",
+      "type": "data-foundation",
+      "rationale": "Implementation depends on the data platform.",
+      "blocking": true
+    },
+    {
+      "id": "EDGE_009",
+      "source": "NODE_016",
+      "target": "NODE_022",
+      "type": "data-foundation",
+      "rationale": "Implementation depends on the data platform.",
+      "blocking": true
+    },
+    {
+      "id": "EDGE_010",
+      "source": "NODE_017",
+      "target": "NODE_019",
+      "type": "security-foundation",
+      "rationale": "Implementation must apply security controls.",
+      "blocking": false
+    },
+    {
+      "id": "EDGE_011",
+      "source": "NODE_017",
+      "target": "NODE_020",
+      "type": "security-foundation",
+      "rationale": "Implementation must apply security controls.",
+      "blocking": false
+    },
+    {
+      "id": "EDGE_012",
+      "source": "NODE_017",
+      "target": "NODE_021",
+      "type": "security-foundation",
+      "rationale": "Implementation must apply security controls.",
+      "blocking": false
+    },
+    {
+      "id": "EDGE_013",
+      "source": "NODE_017",
+      "target": "NODE_022",
+      "type": "security-foundation",
+      "rationale": "Implementation must apply security controls.",
+      "blocking": false
+    },
+    {
+      "id": "EDGE_014",
+      "source": "NODE_019",
+      "target": "NODE_023",
+      "type": "verification",
+      "rationale": "Built work must be tested.",
+      "blocking": true
+    },
+    {
+      "id": "EDGE_015",
+      "source": "NODE_020",
+      "target": "NODE_023",
+      "type": "verification",
+      "rationale": "Built work must be tested.",
+      "blocking": true
+    },
+    {
+      "id": "EDGE_016",
+      "source": "NODE_021",
+      "target": "NODE_023",
+      "type": "verification",
+      "rationale": "Built work must be tested.",
+      "blocking": true
+    },
+    {
+      "id": "EDGE_017",
+      "source": "NODE_022",
+      "target": "NODE_023",
+      "type": "verification",
+      "rationale": "Built work must be tested.",
+      "blocking": true
+    },
+    {
+      "id": "EDGE_018",
+      "source": "NODE_008",
+      "target": "NODE_023",
+      "type": "verification",
+      "rationale": "Built work must be tested.",
+      "blocking": true
+    },
+    {
+      "id": "EDGE_019",
+      "source": "NODE_009",
+      "target": "NODE_023",
+      "type": "verification",
+      "rationale": "Built work must be tested.",
+      "blocking": true
+    },
+    {
+      "id": "EDGE_020",
+      "source": "NODE_010",
+      "target": "NODE_023",
+      "type": "verification",
+      "rationale": "Built work must be tested.",
+      "blocking": true
+    },
+    {
+      "id": "EDGE_021",
+      "source": "NODE_011",
+      "target": "NODE_023",
+      "type": "verification",
+      "rationale": "Built work must be tested.",
+      "blocking": true
+    },
+    {
+      "id": "EDGE_022",
+      "source": "NODE_012",
+      "target": "NODE_023",
+      "type": "verification",
+      "rationale": "Built work must be tested.",
+      "blocking": true
+    },
+    {
+      "id": "EDGE_023",
+      "source": "NODE_013",
+      "target": "NODE_023",
+      "type": "verification",
+      "rationale": "Built work must be tested.",
+      "blocking": true
+    },
+    {
+      "id": "EDGE_024",
+      "source": "NODE_014",
+      "target": "NODE_023",
+      "type": "verification",
+      "rationale": "Built work must be tested.",
+      "blocking": true
+    },
+    {
+      "id": "EDGE_025",
+      "source": "NODE_015",
+      "target": "NODE_023",
+      "type": "verification",
+      "rationale": "Built work must be tested.",
+      "blocking": true
+    },
+    {
+      "id": "EDGE_026",
+      "source": "NODE_016",
+      "target": "NODE_023",
+      "type": "verification",
+      "rationale": "Built work must be tested.",
+      "blocking": true
+    },
+    {
+      "id": "EDGE_027",
+      "source": "NODE_017",
+      "target": "NODE_023",
+      "type": "verification",
+      "rationale": "Built work must be tested.",
+      "blocking": true
+    },
+    {
+      "id": "EDGE_028",
+      "source": "NODE_023",
+      "target": "NODE_024",
+      "type": "release-gate",
+      "rationale": "Deployment follows successful testing.",
+      "blocking": true
+    },
+    {
+      "id": "EDGE_029",
+      "source": "NODE_002",
+      "target": "NODE_023",
+      "type": "open-item",
+      "rationale": "This open item must be resolved before sign-off.",
+      "blocking": false
+    },
+    {
+      "id": "EDGE_030",
+      "source": "NODE_003",
+      "target": "NODE_023",
+      "type": "open-item",
+      "rationale": "This open item must be resolved before sign-off.",
+      "blocking": false
+    },
+    {
+      "id": "EDGE_031",
+      "source": "NODE_004",
+      "target": "NODE_023",
+      "type": "open-item",
+      "rationale": "This open item must be resolved before sign-off.",
+      "blocking": false
+    },
+    {
+      "id": "EDGE_032",
+      "source": "NODE_006",
+      "target": "NODE_023",
+      "type": "open-item",
+      "rationale": "This open item must be resolved before sign-off.",
+      "blocking": false
+    },
+    {
+      "id": "EDGE_033",
+      "source": "NODE_007",
+      "target": "NODE_023",
+      "type": "open-item",
+      "rationale": "This open item must be resolved before sign-off.",
+      "blocking": false
+    }
+  ],
+  "notReadyForHandoff": [
+    "NODE_015",
+    "NODE_019",
+    "NODE_020",
+    "NODE_021",
+    "NODE_022",
+    "NODE_024"
+  ]
+}

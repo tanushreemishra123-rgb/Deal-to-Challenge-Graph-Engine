@@ -1,0 +1,37 @@
+{
+  "nodeId": "NODE_015",
+  "title": "Build AI capability: Advisory reserve-range suggestion for examiners",
+  "operatingModel": "private-pod",
+  "sourceIds": [
+    "AIUC_01",
+    "FR_10"
+  ],
+  "readiness": "review-required",
+  "kind": "private-pod",
+  "objective": "Implement \"Advisory reserve-range suggestion for examiners\" (Recommendation engine), including evaluation and safety controls.",
+  "requiredRoles": [
+    "AI/ML Engineer",
+    "Data Engineer"
+  ],
+  "requiredSkills": [
+    "LLM/ML",
+    "RAG",
+    "Evaluation",
+    "Safety"
+  ],
+  "technicalLeadership": "A technical lead owns architecture decisions and coordination.",
+  "componentOwnership": "Recommendation engine delivering FR_10 (Offer examiners a suggested reserve range based on similar historical claims, clearly marked as advisory only.).",
+  "deliveryResponsibilities": [
+    "Advisory reserve-range suggestion for examiners implementation",
+    "Evaluation harness",
+    "Safety guardrails"
+  ],
+  "securityAndAccess": "Controlled access to restricted systems/data; least-privilege enforced.",
+  "coordinationDependencies": [],
+  "expectedDuration": "6–12 person-days",
+  "definitionOfCompletion": [
+    "Outputs are grounded and evaluated.",
+    "Human review is enforced where required."
+  ],
+  "readinessNote": "Resolve linked items before mobilizing the pod."
+}
