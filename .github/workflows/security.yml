@@ -1,0 +1,23 @@
+﻿name: Security Scans
+on: [push, workflow_dispatch]
+jobs:
+  opengrep:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: curl -fsSL https://raw.githubusercontent.com/opengrep/opengrep/main/install.sh | bash
+      - run: |
+          export PATH="$HOME/.opengrep/cli/latest:$PATH"
+          opengrep --config=r/all --exclude-rule=bbp-pattern-inject . || true
+  trivy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: fs
+          scanners: vuln,secret,misconfig
+          format: table
+          output: trivy-results.txt
+          severity: CRITICAL,HIGH,MEDIUM,LOW
+      - run: cat trivy-results.txt
