@@ -42,6 +42,7 @@ export function decompose(c) {
                             : { minimum: 1, maximum: 3, unit: "person-days" },
       readiness: "ready",
       blocked: false,
+      provenance: "imported", // derived directly from an imported gap/question
     });
     node._blockerFor = item.relatedIds; // used to wire blocking edges
     node._critical = item.critical;
@@ -199,7 +200,7 @@ export function decompose(c) {
     deliverables: ["Test suites", "Defect report", "Sign-off"],
     acceptanceConditions: ["Acceptance criteria verified.", "Critical defects resolved."],
     effort: { minimum: 4, maximum: 8, unit: "person-days" },
-    readiness: "ready", blocked: false,
+    readiness: "ready", blocked: false, provenance: "deterministic",
   });
   testNode._bounded = true; testNode._independent = true;
   nodes.push(testNode);
@@ -214,7 +215,7 @@ export function decompose(c) {
     deliverables: ["Deployed solution", "Runbook"],
     acceptanceConditions: ["Solution runs in the target environment.", "Rollback is tested."],
     effort: { minimum: 3, maximum: 6, unit: "person-days" },
-    readiness: "review-required", blocked: false,
+    readiness: "review-required", blocked: false, provenance: "deterministic",
   });
   deployNode._coordination = true;
   nodes.push(deployNode);
@@ -289,7 +290,7 @@ function baseNode(p) {
     risks: [],
     assumptions: [],
     blocked: !!p.blocked,
-    provenance: "ai-recommended",
+    provenance: p.provenance || "ai-recommended",
     readiness: p.readiness || "review-required",
   };
 }
