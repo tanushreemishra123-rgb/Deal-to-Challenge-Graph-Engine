@@ -101,4 +101,8 @@ function estimateRoles(cat, componentCount) {
   return 2;
 }
 const hasRegulated = (c) =>
-  c.strategy.dataDomains?.some((d) => /phi|pii|regulated|restrict|confidential|health|gdpr/i.test((d.classification || "") + (d.name || "")));
+  c.strategy.dataDomains?.some((d) => anyTerm((d.classification || "") + (d.name || ""), ["phi","pii","regulated","restrict","confidential","health","gdpr"]));
+
+
+// Case-insensitive substring match against a fixed term list (no regex).
+function anyTerm(text, terms) { const t = String(text || "").toLowerCase(); return terms.some((w) => t.includes(w)); }

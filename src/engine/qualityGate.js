@@ -68,7 +68,7 @@ export function runQualityGate(graph, analysis, canonical) {
   // 10. model-to-work sanity (regulated/restricted work should not be a Challenge)
   const mismatch = nodes.filter((n) =>
     n.operatingModel?.primary === "challenge" &&
-    (n.workCategory === "security" || /restricted|regulated|phi/i.test(n.scope || "")));
+    (n.workCategory === "security" || anyTerm(n.scope, ["restricted","regulated","phi"])));
   add("model-fit", "Model-to-work fit", mismatch.length ? "warn" : "pass",
     mismatch.length ? `${mismatch.length} sensitive node(s) classified as Challenge — review` : "Operating models fit the work", mismatch.map((n) => n.id));
 
@@ -94,3 +94,7 @@ export function runQualityGate(graph, analysis, canonical) {
   };
   return { status, checks, summary };
 }
+
+
+// Case-insensitive substring match against a fixed term list (no regex).
+function anyTerm(text, terms) { const t = String(text || "").toLowerCase(); return terms.some((w) => t.includes(w)); }

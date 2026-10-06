@@ -97,7 +97,7 @@ export function decompose(c) {
   const dataReqs = c.scope.requirements.filter((r) => r.type === "data");
   if (dataReqs.length || c.strategy.dataDomains.length) {
     const refs = uniq([...dataReqs.map((r) => r.id), ...c.strategy.dataDomains.map((d) => d.id)]);
-    const restricted = c.strategy.dataDomains.some((d) => /restrict|phi|pii|regulated|confidential/i.test(d.classification || ""));
+    const restricted = c.strategy.dataDomains.some((d) => anyTerm(d.classification, ["restrict","phi","pii","regulated","confidential"]));
     const node = baseNode({
       title: "Data platform & migration",
       objective: "Deliver data domains, pipelines, quality, lineage, and any required migration.",
@@ -297,7 +297,7 @@ const shareId = (a = [], b = []) => a.some((x) => b.includes(x));
 const reqsReferencing = (c, id) =>
   c.scope.requirements.filter((r) => r.relatedIds.includes(id)).map((r) => r.id);
 const hasRegulatedData = (c) =>
-  c.strategy.dataDomains.some((d) => /phi|pii|regulated|restrict|confidential|health|gdpr/i.test((d.classification || "") + (d.name || "")));
+  c.strategy.dataDomains.some((d) => anyTerm((d.classification || "") + (d.name || ""), ["phi","pii","regulated","restrict","confidential","health","gdpr"]));
 function groupComponentsByArea(components) {
   const g = {};
   for (const comp of components) { const a = comp.area || "Core"; (g[a] ||= []).push(comp); }
@@ -318,3 +318,7 @@ function countCrossRefs(comps) {
   let n = 0; for (const c of comps) for (const r of c.requirementIds || []) if (!ids.has(r)) n++;
   return n;
 }
+
+
+// Case-insensitive substring match against a fixed term list (no regex).
+function anyTerm(text, terms) { const t = String(text || "").toLowerCase(); return terms.some((w) => t.includes(w)); }

@@ -106,5 +106,9 @@ function skillsFor(n) {
 }
 const effortText = (n) => `${n.effort.minimum}–${n.effort.maximum} ${n.effort.unit}`;
 const hasSensitive = (n, c) =>
-  n.workCategory === "security" || /restricted|regulated|phi|confidential/i.test(n.scope || "") ||
-  (c.strategy.dataDomains || []).some((d) => /restrict|phi|pii|confidential/i.test(d.classification || ""));
+  n.workCategory === "security" || anyTerm(n.scope, ["restricted","regulated","phi","confidential"]) ||
+  (c.strategy.dataDomains || []).some((d) => anyTerm(d.classification, ["restrict","phi","pii","confidential"]));
+
+
+// Case-insensitive substring match against a fixed term list (no regex).
+function anyTerm(text, terms) { const t = String(text || "").toLowerCase(); return terms.some((w) => t.includes(w)); }
